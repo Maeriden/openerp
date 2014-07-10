@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.openerp table.oe_review_tech_questions tr td:first-child
+{
+	background-color: rgb(238, 238, 238);
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+

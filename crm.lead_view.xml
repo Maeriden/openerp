@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<!-- LEAD ACTION VIEWS FOR INHERITED OPPORTUNITIES VIEW-->
+<record model="ir.ui.view" id="lead_action_form">
+    <field name="name">ies.lead_action.form</field>
+    <field name="model">crm.lead.action</field>
+    <field name="arch" type="xml">
+    	<form string="Lead action" version="7.0">
+		<field name="id" invisible="1"/>
+		<field name="state" invisible="1"/>
+		<field name="lead_id" invisible="1"/>
+    	<sheet>
+    		<group>
+    			<group>
+					<field name="date"/>
+					<field name="name"/>
+				</group>
+				<group>
+					<field name="next_date"/>
+					<field name="next_id"/>
+				</group>
+			</group>
+    	</sheet>
+	    </form>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="lead_action_tree">
+    <field name="name">ies.lead_action.tree</field>
+    <field name="model">crm.lead.action</field>
+    <field name="arch" type="xml">
+    	<tree string="Lead action" editable="bottom">
+		<field name="id" invisible="1"/>
+		<field name="state" invisible="1"/>
+		<field name="lead_id" invisible="1"/>
+		<field name="date"/>
+		<field name="name"/>
+		<button name="view_linked" string="View" type="object"
+			states="call,meet" icon="STOCK_OPEN"/>
+		<field name="next_date"/>
+		<field name="next_id" on_change="onchange_next_action(next_id)"/>
+    	</tree>
+    </field>
+</record>
+
+<!--OPPORTUNITIES-->
+<record model="ir.ui.view" id="crm_oppotunity_tree_inherit">
+    <field name="name">crm.opportunity.tree.inherit</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+    <field name="priority">1</field>
+    <field name="arch" type="xml">
+		<field name="probability" position="replace">
+			<field name="success_level" on_change="onchange_success_level(success_level)"/>
+		</field>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="crm_opportunity_form_inherit">
+    <field name="name">crm.opportunity.form.inherit</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor"/>
+    <field name="arch" type="xml">
+    <!--Hide "... Quotation" buttons-->
+		<xpath expr="/form/header/button[@name='%(sale_crm.action_crm_make_sale)d']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/header/button[@name='%(sale_crm.action_crm_make_sale)d']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+	<!--Show "Create review" button-->
+		<xpath expr="/form/header/button[@string='Convert to Quotation']" position="after">
+			<button name="btn_create_review" string="Create review" type="object"
+				attrs="{'invisible': [('review_id','!=',False)]}"
+			/>
+		</xpath>
+		<xpath expr="/form/sheet/div[@class='oe_right oe_button_box']/button[@name='action_makeMeeting']" position="attributes">
+			<attribute name="string">Action</attribute>
+		</xpath>
+    <!--Remove "probability" field-->
+    <!--
+    	<xpath expr="/form/sheet/div[2]/h2" position="replace">
+            <h2>
+                <field name="company_currency" invisible="1"/>
+                <field name="planned_revenue" class="oe_inline"
+                	widget='monetary' options="{'currency_field': 'company_currency'}"
+                />
+            </h2>
+    	</xpath>
+    -->
+    
+    <!--Hide "next action" fields-->
+		<xpath expr="/form/sheet/group[1]/group[2]/label[@for='title_action']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/sheet/group[1]/group[2]/div[1]" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+	<!--Show "success level" field-->
+		<xpath expr="/form/sheet/group[1]/group[2]/div[1]" position="after">
+			<field name="success_level" on_change="onchange_success_level(success_level)"/>
+		</xpath>
+	<!--Add review link-->
+		<xpath expr="/form/sheet/group[1]/group[4]/field[@name='categ_ids']" position="before">
+			<field name="review_id" readonly="1"/>
+		</xpath>
+	<!--Planned actions history-->
+    	<xpath expr="/form/sheet/notebook/page[1]" position="before">
+    		<page string="Actions">
+    			<field name="action_ids"
+    				context="{'form_view_ref': 'ies.lead_action_form',
+    						  'tree_view_ref': 'ies.lead_action_tree'}"
+    			/>
+    		</page>
+    	</xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="crm_oppotunity_kanban_inherit">
+	<field name="name">crm.opportunity.kanban.inherit</field>
+	<field name="model">crm.lead</field>
+	<field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+	<field name="arch" type="xml">
+		<xpath expr="/kanban/templates/t/div/div[@class='oe_kanban_content']/div[3]" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+	</field>
+</record>
+</data>
+</openerp>

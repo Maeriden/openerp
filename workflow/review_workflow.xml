@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<record model="workflow" id="workflow_review">
+    <field name="name">sale.order.basic</field>
+    <field name="osv">sale.order</field>
+    <field name="on_create">True</field>
+</record>
+
+<!-- Activity -->
+<record model="workflow.activity" id="wfa_draft">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">draft</field>
+    <field name="flow_start">True</field>
+</record>
+
+<record model="workflow.activity" id="wfa_head_lock">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">head_lock</field>
+    <field name="kind">function</field>
+    <field name="action">write({'state':'sent'})</field>
+</record>   
+
+<record model="workflow.activity" id="wfa_head_approve">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">head_approve</field>
+    <field name="kind">function</field>
+    <field name="action">action_wait()</field>
+    <field name="split_mode">OR</field>
+</record>
+
+<record model="workflow.activity" id="wfa_manager_lock">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">manager_lock</field>
+    <field name="kind">function</field>
+    <field name="action">write({'state':'sent'})</field>
+</record>   
+
+<record model="workflow.activity" id="wfa_manager_approve">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">manager_approve</field>
+    <field name="kind">function</field>
+    <field name="action">action_wait()</field>
+    <field name="split_mode">OR</field>
+</record>
+
+<record model="workflow.activity" id="wfa_proposal">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">proposal</field>
+    <field name="kind">subflow</field>
+    <field name="subflow_id" search="[('name','=','account.invoice.basic')]"/>
+    <field name="action">action_invoice_create()</field>
+</record>
+
+<record model="workflow.activity" id="wfa_contract">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">contract</field>
+    <field name="kind">function</field>
+    <field name="action">action_invoice_cancel()</field>
+</record>
+
+<record model="workflow.activity" id="wfa_quality_check">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">quality_check</field>
+    <field name="kind">function</field>
+    <field name="action">action_invoice_end()</field>
+</record>
+
+<record model="workflow.activity" id="wfa_done">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">done</field>
+    <field name="flow_stop">True</field>
+    <field name="kind">function</field>
+    <field name="action">action_done()</field>
+    <field name="join_mode">AND</field>
+</record>
+
+<record model="workflow.activity" id="wfa_cancel">
+    <field name="wkf_id" ref="workflow_review"/>
+    <field name="name">cancel</field>
+    <field name="flow_stop">True</field>
+    <field name="kind">stopall</field>
+    <field name="action">action_cancel()</field>
+</record>
+
+<!-- Transistion -->
+
+<record model="workflow.transition" id="wft_draft_headlock">
+    <field name="act_from" ref="act_draft"/>
+    <field name="act_to" ref="act_sent"/>
+    <field name="signal">quotation_sent</field>
+</record>
+<record model="workflow.transition" id="wft_draft_managerlock">
+    <field name="act_from" ref="act_draft"/>
+    <field name="act_to" ref="act_router"/>
+    <field name="signal">order_confirm</field>
+</record>
+<record model="workflow.transition" id="wft_headlock_headapprove">
+    <field name="act_from" ref="act_draft"/>
+    <field name="act_to" ref="act_router"/>
+    <field name="signal">order_confirm</field>
+</record>
+<record model="workflow.transition" id="wft_headapprove_managerlock">
+    <field name="act_from" ref="act_draft"/>
+    <field name="act_to" ref="act_cancel"/>
+    <field name="signal">cancel</field>
+</record>
+<record model="workflow.transition" id="wft_managerlock_managerapprove">
+    <field name="act_from" ref="act_sent"/>
+    <field name="act_to" ref="act_router"/>
+    <field name="signal">order_confirm</field>
+</record>
+<record model="workflow.transition" id="wft_managerapprove_proposal">
+    <field name="act_from" ref="act_sent"/>
+    <field name="act_to" ref="act_cancel"/>
+    <field name="signal">cancel</field>
+</record>
+<record model="workflow.transition" id="wft_proposal_contract">
+    <field name="act_from" ref="act_router"/>
+    <field name="act_to" ref="act_wait_invoice"/>
+</record>
+<record model="workflow.transition" id="wft_proposal_cancel">
+    <field name="act_from" ref="act_wait_invoice"/>
+    <field name="act_to" ref="act_cancel2"/>
+    <field name="signal">cancel</field>
+</record>
+<record model="workflow.transition" id="wft_contract_qualitycheck">
+    <field name="act_from" ref="act_wait_invoice"/>
+    <field name="act_to" ref="act_invoice_end"/>
+    <field name="signal">all_lines</field>
+</record>
+<record model="workflow.transition" id="wft_cancel_new">
+    <field name="act_from" ref="act_wait_invoice"/>
+    <field name="act_to" ref="act_invoice"/>
+    <field name="signal">manual_invoice</field>
+</record>
+
+</data>
+</openerp>

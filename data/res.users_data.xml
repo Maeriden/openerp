@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<record model="res.company" id="base.main_company">
+	<field name="name">IES Consulting</field>
+</record>
+<record model="res.partner" id="base.main_partner">
+	<field name="name">IES Consulting</field>
+	<field name="email">info@iesconsulting.it</field>
+	<field name="website">www.iesconsulting.it/</field>
+	<field name="lang">it_IT</field>
+</record>
+
+<!--Marketing users-->
+<record model="res.users" id="user_claudio_fussone">
+	<field name="name">Claudio Fussone</field>
+	<field name="customer" eval="False"/>
+	<field name="employee" eval="True"/>
+	<field name="company_id" ref="base.main_company"/>
+	<field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+	<field name="groups_id" eval="[(4,ref('base.group_sale_salesman_all_leads'))]"/>
+	<field name="login">cfussone</field>
+	<field name="password">cfussone</field>
+	<field name="tz">Europe/Rome</field>
+	<field name="notification_email_send">none</field>
+	<field name="email">c.fussone@iesconsulting.it</field>
+</record>
+<record model="hr.employee" id="employee_claudio_fussone">
+	<field name="name">Claudio Fussone</field>
+	<field name="user_id" ref="user_claudio_fussone"/>
+	<field name="address_id" ref="base.main_partner"/>
+</record>
+<!--
+<record model="res.users" id="user_giancarlo_lauriano">
+	<field name="name">Giancarlo Lauriano</field>
+	<field name="employee" eval="True"/>
+	<field name="company_id" ref="base.main_company"/>
+	<field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+	<field name="groups_id" eval="[(4,ref('base.group_sale_salesman_all_leads'))]"/>
+	<field name="login">glauriano</field>
+	<field name="password">glauriano</field>
+	<field name="tz">Europe/Rome</field>
+	<field name="notification_email_send">none</field>
+	<field name="email">g.lauriano@iesconsulting.it</field>
+</record>
+<record model="hr.employee" id="employee_giancarlo_lauriano">
+	<field name="name">Giancarlo Lauriano</field>
+	<field name="user_id" ref="user_giancarlo_lauriano"/>
+	<field name="address_id" ref="base.main_partner"/>
+</record>
+-->
+<record model="res.users" id="user_piergiulio_lauriano">
+	<field name="name">Piergiulio Lauriano</field>
+	<field name="customer" eval="False"/>
+	<field name="employee" eval="True"/>
+	<field name="company_id" ref="base.main_company"/>
+	<field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+	<field name="groups_id" eval="[(4,ref('ies.group_sale_head'))]"/>
+	<field name="login">plauriano</field>
+	<field name="password">plauriano</field>
+	<field name="tz">Europe/Rome</field>
+	<field name="notification_email_send">none</field>
+	<field name="email">p.lauriano@iesconsulting.it</field>
+</record>
+<record model="hr.employee" id="employee_piergiulio_lauriano">
+	<field name="name">Piergiulio Lauriano</field>
+	<field name="user_id" ref="user_piergiulio_lauriano"/>
+	<field name="address_id" ref="base.main_partner"/>
+</record>
+
+<record model="res.users" id="user_roberto_romancino">
+	<field name="name">Roberto Romancino</field>
+	<field name="customer" eval="False"/>
+	<field name="employee" eval="True"/>
+	<field name="company_id" ref="base.main_company"/>
+	<field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+	<field name="groups_id" eval="[(4,ref('ies.group_sale_head'))]"/>
+	<field name="login">rromancino</field>
+	<field name="password">rromancino</field>
+	<field name="tz">Europe/Rome</field>
+	<field name="notification_email_send">none</field>
+	<field name="email">r.romancino@iesconsulting.it</field>
+</record>
+<record model="hr.employee" id="employee_roberto_romancino">
+	<field name="name">Roberto Romancino</field>
+	<field name="user_id" ref="user_roberto_romancino"/>
+	<field name="address_id" ref="base.main_partner"/>
+</record>
+
+<record model="res.users" id="user_marco_lampasona">
+	<field name="name">Marco Lampasona</field>
+	<field name="customer" eval="False"/>
+	<field name="employee" eval="True"/>
+	<field name="company_id" ref="base.main_company"/>
+	<field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+	<field name="groups_id" eval="[(4,ref('base.group_sale_manager'))]"/>
+	<field name="login">mlampasona</field>
+	<field name="password">mlampasona</field>
+	<field name="tz">Europe/Rome</field>
+	<field name="notification_email_send">none</field>
+	<field name="email">m.lampasona@iesconsulting.it</field>
+</record>
+<record model="hr.employee" id="employee_marco_lampasona">
+	<field name="name">Marco Lampasona</field>
+	<field name="user_id" ref="user_marco_lampasona"/>
+	<field name="address_id" ref="base.main_partner"/>
+</record>
+
+
+<!--Accounting users-->
+<record model="res.users" id="user_salvo_canta">
+	<field name="name">Salvo Canta</field>
+	<field name="customer" eval="False"/>
+	<field name="employee" eval="True"/>
+	<field name="company_id" ref="base.main_company"/>
+	<field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+	<field name="groups_id" eval="[(4,ref('account.group_account_manager'))]"/>
+	<field name="login">scanta</field>
+	<field name="password">scanta</field>
+	<field name="tz">Europe/Rome</field>
+	<field name="notification_email_send">none</field>
+	<field name="email">s.canta@iesconsulting.it</field>
+</record>
+<record model="hr.employee" id="employee_salvo_canta">
+	<field name="name">Salvo Canta</field>
+	<field name="user_id" ref="user_salvo_canta"/>
+	<field name="address_id" ref="base.main_partner"/>
+</record>
+</data>
+</openerp>

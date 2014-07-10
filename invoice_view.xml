@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<record model="ir.ui.view" id="invoice_form_inherit">
+	<field name="name">account.invoice.form.inherit</field>
+	<field name="model">account.invoice</field>
+	<field name="inherit_id" ref="account.invoice_form"/>
+	<field name="arch" type="xml">
+		<xpath expr="/form/header/button[@string='Re-Open']" position="after">
+			<button name="btn_register_shares" type="object" string="Register shares" states="paid"/>
+		</xpath>
+		<xpath expr="/form/sheet/group[1]/group[2]/field[@name='account_id']" position="after">
+			<field name="contract_id"/>
+		</xpath>
+		<xpath expr="/form/sheet/notebook/page[1]/field[@name='invoice_line']/tree/field[@name='quantity']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/sheet/notebook/page[1]/field[@name='invoice_line']/tree/field[@name='price_unit']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="invoice_search_inherit">
+	<field name="name">account.invoice.search.inherit</field>
+	<field name="model">account.invoice</field>
+	<field name="inherit_id" ref="account.view_account_invoice_filter"/>
+	<field name="arch" type="xml">
+		<xpath expr="/search/filter[@help='My Invoices']" position="after">
+			<filter name="Credits table" domain="[('state','=','open'), ('type','in',['out_invoice','in_refund'])]"
+				context="{'group_by': 'partner_id'}"
+			/>
+			<filter name="Debits table" domain="[('state','=','open'), ('type','in',['in_invoice','out_refund'])]"
+				context="{'group_by': 'partner_id'}"
+			/>
+		</xpath>
+	</field>
+</record>
+
+
+<record model="ir.ui.view" id="invoice_schedule_line_tree_embed">
+	<field name="name">ies.invoice.schedule.line.tree.embed</field>
+	<field name="model">ies.invoice.schedule.line</field>
+	<field name="arch" type="xml">
+		<tree string="Invoicing schedule" editable="bottom" colors="grey:invoice_id==False;blue:state=='draft';green:state=='paid'">
+		<field name="state" invisible="1"/>
+		<field name="name"/>
+		<field name="date"/>
+		<field name="amount"/>
+		<field name="date_emission"/>
+		<field name="notes"/>
+		<field name="invoice_id"/>
+		<button name="btn_create_invoice" string="Create" type="object"
+			icon="STOCK_EDIT"
+			attrs="{'invisible': [('invoice_id','!=',False)]}"/>
+		<button name="btn_view_invoice" string="View" type="object"
+			icon="STOCK_FILE"
+			attrs="{'invisible': [('invoice_id','=',False)]}"/>
+		</tree>
+	</field>
+</record>
+
+</data>
+</openerp>

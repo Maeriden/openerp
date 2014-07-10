@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<!--Email template for contract expiration reminders-->
+<record model="email.template" id="template_contract_expiration_reminder">
+	<field name="name">Contract expiration reminder</field>
+	<field name="model_id" ref="account_analytic_analysis.model_account_analytic_account"/>
+	<field name="lang">${object.manager_id.lang}</field>
+	<field name="auto_delete" eval="True"/>
+	<field name="email_from">${object.manager_id.company_id.email or ""}</field>
+	<field name="email_to">${object.manager_id.email}</field>
+	<field name="subject">[OpenERP reminder]Contract expiration</field>
+	<field name="body_html"><![CDATA[
+Greetings user.<br/>
+<br/>
+Contract ${object.name} expires in less than one month (on ${object.date}).<br/>
+You have been warned! Now get to work.<br/>
+<br/>
+Have a good day.
+	]]>
+	</field>
+</record>
+
+<record model="email.template" id="template_invoice_schedule_reminder">
+	<field name="name">Invoicing schedule reminder</field>
+	<field name="model_id" ref="ies.model_ies_invoice_schedule_line"/>
+	<field name="lang">${object.contract_id.manager_id.lang}</field>
+	<field name="auto_delete" eval="True"/>
+	<field name="email_from">${object.contract_id.manager_id.company_id.email or ""}</field>
+	<field name="email_to">${object.contract_id.manager_id.email}</field>
+	<field name="subject">[OpenERP reminder]Invoice emission deadline</field>
+	<field name="body_html"><![CDATA[
+Greetings user.<br/>
+<br/>
+Today you have an invoice to create. Check the ${object.contract_id.name} contract.<br/>
+You have been warned! Now get to work.<br/>
+<br/>
+Have a good day.
+	]]>
+	</field>
+</record>
+
+<record model="email.template" id="template_review_task_assignment">
+	<field name="name">Review task assignment</field>
+	<field name="model_id" ref="ies.model_ies_review_service_line"/>
+	<field name="lang">${object.partner_id.lang}</field>
+	<field name="auto_delete" eval="True"/>
+	<field name="email_from">${object.review_id.user_id.company_id.email or ""}</field>
+	<field name="email_to">${object.partner_id.email}</field>
+	<field name="subject">Task assignment</field>
+	<field name="body_html"><![CDATA[
+Greetings.<br/>
+<br/>
+You have been assigned a task for the contract ${object.review_id.contract_id.name}.<br/>
+Contact ${object.review_id.user_id.company_id.name} for details.
+<br/>
+Have a good day.
+	]]>
+	</field>
+</record>
+
+<record model="email.template" id="template_invoice_delay_supplier">
+	<field name="name">Supplier payment delay</field>
+	<field name="model_id" ref="account.model_account_invoice"/>
+	<field name="lang">${object.user_id.lang}</field>
+	<field name="auto_delete" eval="True"/>
+	<field name="email_from">${object.user_id.company_id.email or ""}</field>
+	<field name="email_to">${object.user_id.email}</field>
+	<field name="subject">[OpenERP reminder]Supplier payment delay</field>
+	<field name="body_html"><![CDATA[
+Greetings.<br/>
+<br/>
+The due date for paying ${object.partner_id.name} is long passed.<br/>
+Refer to invoice ${object.number} for details.
+<br/>
+Have a good day.
+	]]>
+	</field>
+</record>
+</data>
+</openerp>

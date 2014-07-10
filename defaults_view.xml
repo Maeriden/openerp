@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<record model="ir.ui.view" id="ies_defaults_form">
+	<field name="name">ies.defaults.form</field>
+	<field name="model">ies.defaults</field>
+	<field name="arch" type="xml">
+		<form string="Defaults" version="7.0" create="0" delete="0">
+		<group string="Reviews">
+			<field name="review_product_category_id"/>
+			<field name="review_follower_ids" widget="many2many_tags"/>
+			<field name="review_task_template_id"/>
+		</group>
+		<group string="Contracts">
+			<group>
+				<field name="contract_expiration_reminder_id"/>
+				<field name="contract_expiration_template_id"/>
+			</group>
+			<group>
+				<field name="invoice_schedule_reminder_id"/>
+				<field name="invoice_schedule_template_id"/>
+			</group>
+		</group>
+		<group string="Payment delays">
+			<field name="supplier_invoice_delay_template_id"/>
+			<field name="supplier_invoice_delay_reminder_ids"/>
+		</group>
+		</form>
+	</field>
+</record>
+
+<record model="ir.actions.act_window" id="action_ies_defaults">
+	<field name="name">Defaults</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">ies.defaults</field>
+	<field name="view_mode">form</field>
+	<field name="view_id" ref="ies.ies_defaults_form"/>
+	<field name="res_id" ref="ies.ies_defaults"/>
+</record>
+
+<menuitem id="menu_config" parent="base.menu_config" name="IES" sequence="1"/>
+<menuitem id="menu_defaults" action="action_ies_defaults" parent="ies.menu_config" sequence="10"/>
+</data>
+</openerp>

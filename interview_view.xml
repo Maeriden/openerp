@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<record model="ir.ui.view" id="feedback_question_tree">
+	<field name="name">ies.feedback.question.tree</field>
+	<field name="model">ies.feedback.question</field>
+	<field name="arch" type="xml">
+		<tree string="Questions" editable="bottom">
+			<field name="question"/>
+			<field name="answer"/>
+		</tree>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="feedback_tree">
+	<field name="name">ies.feedback.tree</field>
+	<field name="model">ies.feedback</field>
+	<field name="arch" type="xml">
+		<tree string="Feedback">
+			<field name="name"/>
+			<field name="contract_id"/>
+			<field name="partner_id"/>
+		</tree>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="feedback_form">
+	<field name="name">ies.feedback.form</field>
+	<field name="model">ies.feedback</field>
+	<field name="arch" type="xml">
+		<form string="Interview" version="7.0">
+		<sheet>
+			<group>
+				<group>
+					<field name="name"/>
+					<field name="date"/>
+					<field name="review_id" on_change="onchange_review(review_id)"/>
+				</group>
+				<group>
+					<field name="contract_id" on_change="onchange_contract(contract_id)"/>
+					<field name="partner_id"/>
+					<field name="date_start"/>
+					<field name="date_end"/>
+				</group>
+			</group>
+			<notebook>
+			<page name="halfway" string="Intermediate interview">
+				<group>
+					<group>
+						<field name="h_projected_date"/>
+						<field name="h_date"/>
+					</group>
+					<group>
+						<field name="h_interviewer"/>
+						<field name="h_modality"/>
+						<field name="h_result"/>
+					</group>
+				</group>
+				<group attrs="{'invisible': [('h_modality','!=','qp')]}">
+					<label for="h_qp_name"/>
+					<div>
+						<field name="h_qp_name" class="oe_inline"/>
+						<button name="btn_fetch_response" string="Fetch" type="object"
+							context="{'qp_survey_name': h_qp_name}"
+							confirm="Fetching response overwrites any existing record"
+						/>
+					</div>
+				</group>
+				<field name="h_question_ids"
+					context="{'tree_view_ref': 'ies.interview_question_tree_embed'}"
+				/>
+			</page>
+			<page name="final" string="Final interview">
+				<group>
+					<group>
+						<field name="f_projected_date"/>
+						<field name="f_date"/>
+					</group>
+					<group>
+						<field name="f_interviewer"/>
+						<field name="f_modality"/>
+						<field name="f_result"/>
+					</group>
+				</group>
+				<group attrs="{'invisible': [('f_modality','!=','qp')]}">
+					<label for="f_qp_name"/>
+					<div>
+						<field name="f_qp_name" class="oe_inline"/>
+						<button name="btn_fetch_response" string="Fetch" type="object"
+							context="{'qp_survey_name': f_qp_name}"
+							confirm="Fetching response overwrites any existing record"
+						/>
+					</div>
+				</group>
+				<field name="f_question_ids"
+					context="{'tree_view_ref': 'ies.interview_question_tree_embed'}"
+				/>
+			</page>
+			</notebook>
+		</sheet>
+		</form>
+	</field>
+</record>
+
+
+<record model="ir.actions.act_window" id="action_feedback">
+	<field name="name">Interviews</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">ies.feedback</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_aftersale" name="Aftersale" parent="base.menu_base_partner" sequence="2"/>
+<menuitem id="menu_feedback" action="action_feedback" parent="ies.menu_aftersale" sequence="5"/>
+</data>
+</openerp>

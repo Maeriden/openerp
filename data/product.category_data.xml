@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<record model="product.category" id="product_category_cafr">
+	<field name="name">Created automatically from review</field>
+	<field name="parent_id" ref="product.product_category_all"/>
+	<field name="type">normal</field>
+</record>
+</data>
+</openerp>

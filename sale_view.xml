@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<record model="ir.ui.view" id="quotation_tree_inherit">
+	<field name="name">sale.quotation.tree.inherit</field>
+	<field name="model">sale.order</field>
+	<field name="inherit_id" ref="sale.view_quotation_tree"/>
+	<field name="arch" type="xml">
+	<!--Make quotation uncreatable and uneditable from tree view-->
+		<xpath expr="/tree" position="attributes">
+			<attribute name="create">false</attribute>
+		<!--<attribute name="delete">false</attribute>-->
+		</xpath>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="sale_order_tree_inherit">
+	<field name="name">sale.order.tree.inherit</field>
+	<field name="model">sale.order</field>
+	<field name="inherit_id" ref="sale.view_order_tree"/>
+	<field name="arch" type="xml">
+	<!--Make sale order uncreatable and uneditable from tree view-->
+		<xpath expr="/tree" position="attributes">
+			<attribute name="create">false</attribute>
+		<!--<attribute name="delete">false</attribute>-->
+		</xpath>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="sale_order_form_inherit">
+	<field name="name">sale.order.form.inherit</field>
+	<field name="model">sale.order</field>
+	<field name="inherit_id" ref="sale.view_order_form"/>
+	<field name="arch" type="xml">
+	<!--Make quotation/sale_order uncreatable and uneditable from form view-->
+		<xpath expr="/form" position="attributes">
+			<attribute name="create">false</attribute>
+		<!--<attribute name="delete">false</attribute>-->
+		</xpath>
+		
+		<xpath expr="/form/header/button[@name='action_button_confirm']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/header/button[@name='copy_quotation']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/header/button[@name='cancel']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/header/button[@string='Cancel Order']" position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		
+		<xpath expr="/form/sheet/group[1]/group[1]/field[@name='project_id']" position="after">
+			<field name="review_id" readonly="1"/>
+		</xpath>
+		<xpath expr="/form/sheet/notebook/page[1]/field[@name='order_line']/tree/field[@name='product_uom_qty']"
+			position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/sheet/notebook/page[1]/field[@name='order_line']/tree/field[@name='tax_id']"
+			position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/sheet/notebook/page[1]/field[@name='order_line']/tree/field[@name='price_unit']"
+			position="attributes">
+			<attribute name="invisible">1</attribute>
+		</xpath>
+		<xpath expr="/form/sheet/notebook/page[1]/field[@name='order_line']/tree/field[@name='price_subtotal']"
+			position="attributes">
+			<attribute name="string">Price w/o VAT</attribute>
+		</xpath>
+		<xpath expr="/form/sheet/notebook/page[2]/group[1]/group[1]/field[@name='origin']" position="after">
+			<field name="dropbox"/>
+		</xpath>
+	</field>
+</record>
+
+<!--For translation-->
+<record id="sale.action_quotations" model="ir.actions.act_window">
+	<field name="name">Proposals</field>
+</record>
+<record id="sale.action_orders" model="ir.actions.act_window">
+	<field name="name">Accepted proposals</field>
+</record>
+
+
+
+
+</data>
+</openerp>

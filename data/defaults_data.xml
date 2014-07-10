@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<!--Only object ever created-->
+<record model="ies.defaults" id="ies_defaults">
+	<field name="review_product_category_id" ref="ies.product_category_cafr"/>
+	<field name="review_task_template_id" ref="ies.template_review_task_assignment"/>
+	<field name="contract_expiration_reminder_id" ref="ies.reminder_rule_30db"/>
+	<field name="contract_expiration_template_id" ref="ies.template_contract_expiration_reminder"/>
+	<field name="invoice_schedule_reminder_id" ref="ies.reminder_rule_0hb"/>
+	<field name="invoice_schedule_template_id" ref="ies.template_invoice_schedule_reminder"/>
+	<field name="supplier_invoice_delay_template_id" ref="ies.template_invoice_delay_supplier"/>
+</record>
+</data>
+</openerp>

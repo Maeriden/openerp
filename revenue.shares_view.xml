@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<record model="ir.ui.view" id="revenue_share_line_tree">
+	<field name="name">ies.revenue.share.line.tree</field>
+	<field name="model">ies.revenue.share.line</field>
+	<field name="arch" type="xml">
+		<tree string="Shares">
+		<field name="share_id" invisible="1"/>
+		<field name="partner_id"/>
+		<field name="amount"/>
+		</tree>
+	</field>
+</record>
+
+
+<record model="ir.ui.view" id="revenue_share_tree">
+	<field name="name">ies.revenue.share.tree</field>
+	<field name="model">ies.revenue.share</field>
+	<field name="arch" type="xml">
+		<tree string="Revenue shares roster" create="false">
+		<field name="invoice_id" invisible="1"/>
+		<field name="partner_id"/>
+		<field name="desc"/>
+		<field name="code"/>
+		<field name="period_id"/>
+		<field name="amount"/>
+		</tree>
+	</field>
+</record>
+<record model="ir.ui.view" id="revenue_share_form">
+	<field name="name">ies.revenue.share.form</field>
+	<field name="model">ies.revenue.share</field>
+	<field name="arch" type="xml">
+		<form string="Revenue shares roster" version="7.0" create="false">
+		<sheet>
+			<field name="invoice_id" invisible="1"/>
+			<group>
+				<group>
+					<field name="period_id"/>
+					<field name="partner_id"/>
+				</group>
+				<group>
+					<field name="desc"/>
+					<field name="code"/>
+				</group>
+			</group>
+			<group>
+				<field name="amount" class="oe_inline"/>
+			</group>
+			<field name="share_line_ids" context="{'tree_view_ref': 'ies.revenue_share_line_tree'}"/>
+		</sheet>
+		</form>
+	</field>
+</record>
+<record model="ir.ui.view" id="revenue_share_search">
+	<field name="name">ies.revenue.share.search</field>
+	<field name="model">ies.revenue.share</field>
+	<field name="arch" type="xml">
+		<search string="Revenue shares roster">
+		<field name="partner_id"/>
+		<field name="period_id"/>
+		</search>
+	</field>
+</record>
+
+
+<record model="ir.actions.act_window" id="action_revenue_shares">
+	<field name="name">Revenue shares</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">ies.revenue.share</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+	<field name="search_view_id" ref="ies.revenue_share_search"/>
+	<field name="domain"></field>
+	<field name="context">{}</field>
+	<field name="help" type="html"></field>
+</record>
+
+<!--
+<record model="ir.actions.act_window" id="action_revenue_periods">
+	<field name="name">Shares periods</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">ies.revenue.period</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+	<! -<field name="search_view_id" ref="ies.revenue_share_search"/>- >
+	<field name="context">{}</field>
+	<field name="domain"></field>
+	<field name="help" type="html"></field>
+</record>
+-->
+<menuitem id="menu_revenue_shares" parent="account.menu_finance_payables" action="action_revenue_shares" sequence="1"/>
+<!--
+<menuitem id="menu_revenue_periods" parent="base.menu_sales" action="action_revenue_periods" sequence="17"/>
+-->
+</data>
+</openerp>

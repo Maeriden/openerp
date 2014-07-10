@@ -1,0 +1,1582 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* ies
+#   * sale
+#   * crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20131113-002526\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-24 07:46+0000\n"
+"PO-Revision-Date: 2014-02-24 08:52+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.4\n"
+"Language: it_IT\n"
+
+#. module: ies
+#: field:ies.review,prospect_perceived_value:0
+msgid "Value perceived by the prospect"
+msgstr "Valore percepito dal prospect"
+
+#. module: ies
+#: selection:ies.reminder.rule,occurs:0
+msgid "After"
+msgstr "Dopo"
+
+#. module: ies
+#: field:ies.quality.plan,date_end:0
+msgid "Ending date"
+msgstr "Data fine"
+
+#. module: ies
+#: selection:ies.feedback,f_modality:0 selection:ies.feedback,h_modality:0
+msgid "QuestionPro"
+msgstr "QuestionPro"
+
+#. module: ies
+#: field:crm.lead.action,lead_id:0
+msgid "Lead"
+msgstr "Lead"
+
+#. module: ies
+#: selection:ies.review,state:0
+msgid "Manager check"
+msgstr "Controllo manager"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_revenue_share_line
+msgid "ies.revenue.share.line"
+msgstr "ies.revenue.share.line"
+
+#. module: ies
+#: help:ies.reminder.watcher,method:0
+msgid "Will be called when the alarm triggers"
+msgstr "Chiamato quando scatta l'allarme"
+
+#. module: ies
+#: field:ies.review,question_2:0
+msgid "The method was tested"
+msgstr "Il metodo è stato sperimentato"
+
+#. module: ies
+#: view:ies.review:0 view:res.groups:0
+msgid "Group by"
+msgstr "Raggruppa"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Work start"
+msgstr "Inizio lavori"
+
+#. module: ies
+#: field:ies.review.service.line,role:0
+msgid "Role"
+msgstr "Ruolo"
+
+#. module: ies
+#: view:sale.order:0
+msgid "Price w/o VAT"
+msgstr "Prezzo netto IVA"
+
+#. module: ies
+#: model:ir.actions.act_window,help:ies.action_watchers
+msgid ""
+"<p class=\"oe_view_nocontent_create\"/>\n"
+"\t"
+msgstr ""
+"<p class=\"oe_view_nocontent_create\"/>\n"
+"\t"
+
+#. module: ies
+#: view:crm.lead.action:0 view:ies.invoice.schedule.line:0
+msgid "View"
+msgstr "Apri"
+
+#. module: ies
+#: model:email.template,subject:ies.template_contract_expiration_reminder
+msgid "[OpenERP reminder]Contract expiration"
+msgstr "[Promemoria OpenERP]Scadenza contratto"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Re-open project"
+msgstr "Riapri progetto"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Remaining"
+msgstr "Rimanenti"
+
+#. module: ies
+#: field:ies.review,revision:0
+msgid "Revision"
+msgstr "Revisione"
+
+#. module: ies
+#: field:ies.review,message_ids:0
+msgid "Messages"
+msgstr "Messaggi"
+
+#. module: ies
+#: field:ies.review,vadded_va:0
+msgid "Value added"
+msgstr "Valore aggiunto"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "The Project Manager will be the one notified by the reminder"
+msgstr "Il project manager sarà la persona notificata dal promemoria"
+
+#. module: ies
+#: view:ies.review:0 field:ies.review,name:0
+msgid "Service"
+msgstr "Servizio"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Section"
+msgstr "Sezione"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Schedule"
+msgstr "Scadenziario"
+
+#. module: ies
+#: view:ies.reminder.rule:0
+msgid "Rules"
+msgstr "Regole"
+
+#. module: ies
+#: field:ies.revenue.share,period_id:0
+msgid "Period"
+msgstr "Periodo"
+
+#. module: ies
+#: view:ies.review:0
+msgid "DRRIE01 (rev.11 2014-01-28)"
+msgstr "DRRIE01 (rev.11 2014-01-28)"
+
+#. module: ies
+#: field:ies.quality.plan,date_start:0
+msgid "Starting date"
+msgstr "Data inizio"
+
+#. module: ies
+#: field:ies.review,referent_id:0
+msgid "Referent"
+msgstr "Referente"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_defaults
+msgid "ies.defaults"
+msgstr "ies.defaults"
+
+#. module: ies
+#: field:ies.review,travel_expenses:0
+msgid "Travel expenses"
+msgstr "Spese di viaggio"
+
+#. module: ies
+#: field:ies.defaults,contract_expiration_reminder_id:0
+msgid "Contract expiration reminder"
+msgstr "Promemoria scadenza"
+
+#. module: ies
+#: selection:ies.review,state:0
+msgid "Approved"
+msgstr "Approvato"
+
+#. module: ies
+#: selection:ies.feedback.question,answer:0
+msgid "Partially"
+msgstr "Parzialmente"
+
+#. module: ies
+#: view:ies.review:0
+msgid ""
+"Cancelling a review will also cancel its proposal (if it exists). Are you "
+"sure?"
+msgstr ""
+"Annullare un riesame annullerà anche la sua proposta (se esiste). Sei "
+"sicuro?"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Current year"
+msgstr "Anno corrente"
+
+#. module: ies
+#: model:ir.actions.act_window,name:ies.action_partner_debits
+#: view:res.partner:0
+msgid "Debits"
+msgstr "Debiti"
+
+#. module: ies
+#: selection:crm.lead,success_level:0
+#: selection:ies.review,client_profitability:0
+#: selection:ies.review,prospect_perceived_value:0
+#: selection:ies.review,reliability:0 selection:res.partner,reliability:0
+msgid "Low"
+msgstr "Basso"
+
+#. module: ies
+#: field:ies.review,op_venues:0 field:res.partner,operative_venues:0
+msgid "Operative venues"
+msgstr "Sedi operative"
+
+#. module: ies
+#: field:ies.invoice.schedule.line,notes:0
+#: field:ies.quality.plan.stage,notes:0 view:ies.review:0
+#: field:ies.review.service.line,notes:0
+msgid "Notes"
+msgstr "Note"
+
+#. module: ies
+#: field:ies.defaults,supplier_invoice_delay_template_id:0
+msgid "Supplier payment delay email"
+msgstr "Email ritardi"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Contract Information"
+msgstr "Informazioni contratto"
+
+#. module: ies
+#: view:ies.review:0
+msgid "A quality check plan is necessary"
+msgstr "È necessario un piano controllo qualità"
+
+#. module: ies
+#: view:ies.defaults:0 model:ir.actions.act_window,name:ies.action_reviews
+#: model:ir.ui.menu,name:ies.menu_review
+msgid "Reviews"
+msgstr "Riesami"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_invoice_schedule_line
+msgid "ies.invoice.schedule.line"
+msgstr "ies.invoice.schedule.line"
+
+#. module: ies
+#: field:ies.invoice.schedule.line,amount:0 field:ies.revenue.share,amount:0
+#: field:ies.revenue.share.line,amount:0
+msgid "Invoiced amount"
+msgstr "Importo fatturato"
+
+#. module: ies
+#: field:ies.review,message_unread:0
+msgid "Unread Messages"
+msgstr "Messaggi non letti"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "To Invoice"
+msgstr "Da fatturare"
+
+#. module: ies
+#: field:ies.review,question_4:0
+msgid "Involved resources have adequate experience"
+msgstr "Le risorse coinvolte hanno adeguata esperienza"
+
+#. module: ies
+#: selection:ies.invoice.schedule.line,state:0
+msgid "Cancelled"
+msgstr "Annullato"
+
+#. module: ies
+#: selection:ies.reminder.rule,uom:0
+msgid "Minutes"
+msgstr "Minuti"
+
+#. module: ies
+#: help:ies.review,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Se spuntato, i nuovi messaggi richiedono la tua attenzione"
+
+#. module: ies
+#: view:ies.defaults:0
+msgid "Payment delays"
+msgstr "Ritardo pagamento fornitori"
+
+#. module: ies
+#: field:crm.lead.action,next_id:0
+msgid "Next action"
+msgstr "Prossima azione"
+
+#. module: ies
+#: help:ies.quality.plan,name:0
+msgid "For m2o label display only"
+msgstr "For m2o label display only"
+
+#. module: ies
+#: selection:ies.feedback.question,answer:0
+msgid "I don't know"
+msgstr "Non so"
+
+#. module: ies
+#: field:ies.invoice.schedule.line,date_emission:0
+msgid "Emission date"
+msgstr "Data emissione"
+
+#. module: ies
+#: selection:crm.lead,success_level:0
+msgid "Certain"
+msgstr "Certa"
+
+#. module: ies
+#: field:ies.defaults,invoice_schedule_reminder_id:0
+msgid "Invoice schedule reminder"
+msgstr "Promemoria scadenziario"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Cancel Contract"
+msgstr "Annulla contratto"
+
+#. module: ies
+#: field:ies.revenue.share.line,share_id:0
+msgid "Share"
+msgstr "Documento"
+
+#. module: ies
+#: model:email.template,body_html:ies.template_contract_expiration_reminder
+msgid ""
+"\n"
+"Greetings user.<br/>\n"
+"<br/>\n"
+"Contract ${object.name} expires in less than one month (on ${object.date})."
+"<br/>\n"
+"You have been warned! Now get to work.<br/>\n"
+"<br/>\n"
+"Have a good day.\n"
+"\t\n"
+"\t"
+msgstr ""
+"\n"
+"Saluti utente.<br/>\n"
+"<br/>\n"
+"Il contratto ${object.name} scade in meno di un mese (il ${object.date})."
+"<br/>\n"
+"Sei stato avvisato. Buona giornata.<br/>\n"
+"<br/>\n"
+"\n"
+"\t\n"
+"\t"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Costs and Revenues"
+msgstr "Costi e ricavi"
+
+#. module: ies
+#: field:ies.defaults,supplier_invoice_delay_reminder_ids:0
+msgid "Payment delay reminders"
+msgstr "Promemoria"
+
+#. module: ies
+#: view:ies.review:0
+msgid "From date"
+msgstr "Da data"
+
+#. module: ies
+#: field:res.partner,reliability_desc:0
+msgid "Client profile description"
+msgstr "Descrizione profilo cliente"
+
+#. module: ies
+#: model:ir.model,name:ies.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: ies
+#: model:ir.model,name:ies.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: ies
+#: view:ies.review:0
+msgid "New revision"
+msgstr "Nuova revisione"
+
+#. module: ies
+#: field:ies.review,output:0
+msgid "Service output"
+msgstr "output servizio"
+
+#. module: ies
+#: selection:ies.reminder.rule,occurs:0
+msgid "Before"
+msgstr "Prima"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Create proposal"
+msgstr "Crea proposta"
+
+#. module: ies
+#: field:ies.review,question_7:0
+msgid "Completion time is compatible with resources' obligations"
+msgstr "Il tempo di realizzazione è compatibile con gli impegni delle risorse"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Create contract"
+msgstr "Crea contratto"
+
+#. module: ies
+#: field:ies.review,completion_time:0
+msgid "Completion time"
+msgstr "Tempo di realizzazione"
+
+#. module: ies
+#: view:ies.invoice.schedule.line:0
+msgid "Create"
+msgstr "Crea"
+
+#. module: ies
+#: help:ies.defaults,invoice_schedule_template_id:0
+msgid "'model' must be 'ies.invoice.schedule.line'"
+msgstr "Il campo 'model' deve essere 'ies.invoice.schedule.line'"
+
+#. module: ies
+#: field:ies.feedback.question,question:0
+msgid "Question"
+msgstr "Domanda"
+
+#. module: ies
+#: selection:ies.feedback,f_result:0 selection:ies.feedback,h_result:0
+msgid "Negative"
+msgstr "Negativo"
+
+#. module: ies
+#: field:ies.quality.plan.stage,next_id:0
+msgid "Next"
+msgstr "Prossimo"
+
+#. module: ies
+#: model:mail.message.subtype,description:ies.mt_review_state
+msgid "Changes in the document state"
+msgstr "Cambi stato documento"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Partner information"
+msgstr "Informazioni partner"
+
+#. module: ies
+#: field:ies.defaults,review_follower_ids:0
+#: field:ies.review,message_follower_ids:0
+msgid "Followers"
+msgstr "Followers"
+
+#. module: ies
+#: selection:ies.quality.plan.stage,result:0
+msgid "Passed"
+msgstr "Passato"
+
+#. module: ies
+#: help:ies.revenue.share,desc:0
+msgid "Invoice line description"
+msgstr "Descrizione riga fattura"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Expected"
+msgstr "Previsto"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Are you sure?"
+msgstr "Sei sicuro?"
+
+#. module: ies
+#: view:ies.feedback:0
+msgid "Fetching response overwrites any existing record"
+msgstr "Sincronizzare le risposte sovrascrive i dati esistenti"
+
+#. module: ies
+#: help:ies.defaults,supplier_invoice_delay_template_id:0
+msgid "'model' must be 'account.invoice'"
+msgstr "Il campo 'model' deve essere 'account.invoice'"
+
+#. module: ies
+#: model:ir.model,name:ies.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Conto Analitico"
+
+#. module: ies
+#: model:res.groups,name:ies.group_sale_head
+msgid "Head"
+msgstr "Head"
+
+#. module: ies
+#: selection:crm.lead,success_level:0
+#: selection:ies.review,client_profitability:0
+#: selection:ies.review,prospect_perceived_value:0
+#: selection:ies.review,reliability:0 selection:res.partner,reliability:0
+msgid "Medium"
+msgstr "Medio"
+
+#. module: ies
+#: field:ies.defaults,contract_expiration_template_id:0
+msgid "Contract expiration email"
+msgstr "Email scadenza"
+
+#. module: ies
+#: field:ies.review,risk:0
+msgid "Risk"
+msgstr "Rischio"
+
+#. module: ies
+#: field:crm.lead.action,meeting_id:0 selection:crm.lead.action,state:0
+#: selection:ies.feedback,f_modality:0 selection:ies.feedback,h_modality:0
+#: model:ir.model,name:ies.model_crm_meeting
+msgid "Meeting"
+msgstr "Incontro"
+
+#. module: ies
+#: field:ies.reminder.watcher,rule_id:0
+msgid "Reminder"
+msgstr "Promemoria"
+
+#. module: ies
+#: field:ies.review,notes4:0
+msgid "Travel notes"
+msgstr "Note su viaggio"
+
+#. module: ies
+#: help:ies.review,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: ies
+#: field:ies.review,tpc:0 view:ies.review.service.line:0
+msgid "Total production cost"
+msgstr "Costo totale di produzione"
+
+#. module: ies
+#: selection:ies.reminder.rule,uom:0
+msgid "Hours"
+msgstr "Ore"
+
+#. module: ies
+#: field:ies.review,reliability:0 field:res.partner,reliability:0
+msgid "Reliability"
+msgstr "Affidabilità"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Parent analytic account. Used to divide contracts in sections"
+msgstr "Conto analitico padre. Usato per sezionare i contratti"
+
+#. module: ies
+#: field:ies.review,question_1:0
+msgid "The service is based on a method"
+msgstr "Il servizio è basato su un metodo"
+
+#. module: ies
+#: field:ies.quality.plan.stage,report:0
+msgid "Report"
+msgstr "Report"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Contract Finished"
+msgstr "Contratto finito"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Accepted"
+msgstr "Accettato"
+
+#. module: ies
+#: field:ies.invoice.schedule.line,state:0 view:ies.review:0
+msgid "State"
+msgstr "Stato"
+
+#. module: ies
+#: view:ies.quality.plan.stage:0
+msgid "Quality check plan stage"
+msgstr "Fase piano controllo qualità"
+
+#. module: ies
+#: help:ies.reminder.watcher,field:0
+msgid "Field used to calculate trigger time. Must be a date(time)"
+msgstr ""
+
+#. module: ies
+#: field:ies.reminder.watcher,res_id:0
+msgid "Database ID"
+msgstr ""
+
+#. module: ies
+#: field:ies.review,sga:0
+msgid "SG&A expenses %"
+msgstr "Spese generali"
+
+#. module: ies
+#: field:ies.review,service_line_ids:0 view:ies.review.service.line:0
+msgid "Production costs"
+msgstr "Costi di produzione"
+
+#. module: ies
+#: field:ies.reminder.rule,delta:0
+msgid "UoM amount"
+msgstr "Quantità"
+
+#. module: ies
+#: field:ies.review,previous_id:0
+msgid "Previous revision"
+msgstr "Revisione precedente"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_reminder_watcher
+msgid "ies.reminder.watcher"
+msgstr "ies.reminder.watcher"
+
+#. module: ies
+#: selection:crm.lead.action,state:0
+msgid "Phone call"
+msgstr "Chiamata"
+
+#. module: ies
+#: field:ies.review,question_5:0
+msgid "Involved resources were tested in previous services"
+msgstr "Le risorse coinvolte sono state testate in precedenti servizi"
+
+#. module: ies
+#: field:ies.review,fee_va:0
+msgid "Commercial fee"
+msgstr "Fee commerciali"
+
+#. module: ies
+#: field:ies.review,address:0
+msgid "Legal address"
+msgstr "Indirizzo legale"
+
+#. module: ies
+#: field:res.partner,reliability_effect:0
+msgid "Administrative effects"
+msgstr "Effetti amministrativi"
+
+#. module: ies
+#: field:ies.quality.plan,stage_ids:0
+msgid "Stages"
+msgstr "Fasi"
+
+#. module: ies
+#: field:ies.review,dimension:0 field:res.partner,dimension:0
+msgid "Dimension"
+msgstr "Dimensione"
+
+#. module: ies
+#: field:ies.review.service.line,total:0
+msgid "Total cost"
+msgstr "Costo totale"
+
+#. module: ies
+#: field:ies.review,notes5:0
+msgid "Total notes"
+msgstr "Note su totale"
+
+#. module: ies
+#: field:ies.review,notes1:0
+msgid "SGA notes"
+msgstr "Note spese generali"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Economic review"
+msgstr "Resame economico"
+
+#. module: ies
+#: field:ies.review,info:0 field:ies.review,partner_info:0
+msgid "Other info"
+msgstr "Altre informazioni"
+
+#. module: ies
+#: selection:ies.invoice.schedule.line,state:0
+msgid "Pro-forma"
+msgstr "Pro-forma"
+
+#. module: ies
+#: model:ir.actions.act_window,help:ies.action_reviews
+msgid ""
+"<p class=\"oe_view_nocontent_create\">Reviews are created from "
+"opportunities</p>\n"
+"\t"
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">I riesami vengono creati "
+"dalle opportunità</p>\n"
+"\t"
+
+#. module: ies
+#: view:ies.review:0 selection:ies.review,state:0
+msgid "Canceled"
+msgstr "Annullato"
+
+#. module: ies
+#: field:ies.review,question_6:0
+msgid "The project manager has adequate experience"
+msgstr "Il project manager ha un'adeguata esperienza"
+
+#. module: ies
+#: field:ies.feedback,f_result:0 field:ies.feedback,h_result:0
+#: field:ies.quality.plan.stage,result:0
+msgid "Result"
+msgstr "Risultato"
+
+#. module: ies
+#: field:ies.review,client_profitability:0
+msgid "Client profitability over time"
+msgstr "Profittabilità del cliente nel tempo"
+
+#. module: ies
+#: field:ies.quality.plan.stage,plan_id:0 field:ies.review,currency_id:0
+msgid "unknown"
+msgstr "Piano"
+
+#. module: ies
+#: model:ir.actions.act_window,name:ies.action_reminders
+#: model:ir.ui.menu,name:ies.menu_reminders
+msgid "Reminder rules"
+msgstr "Regole promemoria"
+
+#. module: ies
+#: selection:ies.feedback.question,answer:0
+msgid "Yes"
+msgstr "Si"
+
+#. module: ies
+#: field:ies.review,final_opinion:0
+msgid "Final opinion"
+msgstr "Giudizio finale"
+
+#. module: ies
+#: view:ies.revenue.share:0
+msgid "Revenue shares roster"
+msgstr "Registro ripartizioni incassi"
+
+#. module: ies
+#: model:ir.model,name:ies.model_crm_opportunity2phonecall
+msgid "Opportunity to Phonecall"
+msgstr "Converti in chiamata"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Invoiced"
+msgstr "Fatturato"
+
+#. module: ies
+#: view:res.groups:0
+msgid "Category"
+msgstr "Categoria"
+
+#. module: ies
+#: field:ies.defaults,review_product_category_id:0
+msgid "Review products category"
+msgstr "Categoria prodotti"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_quality_plan_stage
+msgid "A step in a quality check plan"
+msgstr "Una fase in un piano controllo qualità"
+
+#. module: ies
+#: field:ies.reminder.watcher,method:0
+msgid "Method to call"
+msgstr "Metodo chiamato"
+
+#. module: ies
+#: selection:ies.feedback,f_modality:0 selection:ies.feedback,h_modality:0
+msgid "Telephone call"
+msgstr "Chiamata"
+
+#. module: ies
+#: field:ies.review,notes2:0
+msgid "Fee notes"
+msgstr "Note su fee"
+
+#. module: ies
+#: selection:ies.feedback.question,answer:0
+msgid "No"
+msgstr "No"
+
+#. module: ies
+#: field:ies.review,notes3:0
+msgid "Margin notes"
+msgstr "Note su margine"
+
+#. module: ies
+#: field:account.analytic.account,review_id:0 field:crm.lead,review_id:0
+#: field:ies.feedback,review_id:0 field:ies.quality.plan,review_id:0
+#: view:ies.review:0 field:ies.review.service.line,review_id:0
+#: model:ir.model,name:ies.model_ies_review field:sale.order,review_id:0
+msgid "Review"
+msgstr "Riesame"
+
+#. module: ies
+#: view:crm.lead.action:0
+msgid "Lead action"
+msgstr "Azione lead"
+
+#. module: ies
+#: field:ies.revenue.share,share_line_ids:0 view:ies.revenue.share.line:0
+msgid "Shares"
+msgstr "Ripartizioni"
+
+#. module: ies
+#: selection:ies.invoice.schedule.line,state:0 selection:ies.review,state:0
+msgid "Draft"
+msgstr "Bozza"
+
+#. module: ies
+#: model:email.template,body_html:ies.template_invoice_schedule_reminder
+msgid ""
+"\n"
+"Greetings user.<br/>\n"
+"<br/>\n"
+"Today you have an invoice to create. Check the ${object.contract_id.name} "
+"contract.<br/>\n"
+"You have been warned! Now get to work.<br/>\n"
+"<br/>\n"
+"Have a good day.\n"
+"\t\n"
+"\t"
+msgstr ""
+"\n"
+"Saluti utente.<br/>\n"
+"<br/>\n"
+"Oggi si deve emettere una fattura. Controlla il contratto ${object.contract_id.name}"
+"<br/>\n"
+"Sei stato avvisato. Buona giornata.<br/>\n"
+"<br/>\n"
+"\n"
+"\t\n"
+"\t"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Reject"
+msgstr "Rifiuta"
+
+#. module: ies
+#: field:ies.feedback.question,answer:0
+msgid "Answer"
+msgstr "Risposta"
+
+#. module: ies
+#: model:res.groups,comment:ies.group_see_contracts_menu
+msgid ""
+"Hides the \"/Sales/Sales/Contracts\" menu created by\n"
+"account.analytic.analysis for any user not in the group (ideally everyone).\n"
+"The menu is to be replaced by this module's version that uses custom views.\n"
+"\t"
+msgstr ""
+
+#. module: ies
+#: help:ies.reminder.watcher,model:0
+msgid "Model of the object on which the reminder is set"
+msgstr "Modello dell'oggetto"
+
+#. module: ies
+#: help:ies.defaults,contract_expiration_template_id:0
+msgid "'model' must be 'account.analytic.account'"
+msgstr "Il campo 'model' deve essere 'account.analytic.account'"
+
+#. module: ies
+#: field:ies.reminder.rule,occurs:0
+msgid "Occurs"
+msgstr "Accade"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Pending"
+msgstr "In corso"
+
+#. module: ies
+#: model:res.groups,comment:ies.group_sale_head
+msgid "Heads validate reviews before managers do"
+msgstr "Gli head approvano i riesami prima dei manager"
+
+#. module: ies
+#: field:ies.review,sga_va:0
+msgid "SG&A expenses"
+msgstr "Spese generali"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Terms and Conditions"
+msgstr "Termini e condizioni"
+
+#. module: ies
+#: field:ies.feedback,f_qp_name:0 field:ies.feedback,h_qp_name:0
+msgid "QuestionPro survey name"
+msgstr "Nome sondaggio QuestionPro"
+
+#. module: ies
+#: view:ies.defaults:0 model:ir.actions.act_window,name:ies.action_contracts
+#: model:ir.ui.menu,name:ies.menu_contracts
+msgid "Contracts"
+msgstr "Contratti"
+
+#. module: ies
+#: field:ies.feedback,date_start:0
+msgid "Contract start"
+msgstr "Inizio contratto"
+
+#. module: ies
+#: view:crm.lead:0
+msgid "Create review"
+msgstr "Crea riesame"
+
+#. module: ies
+#: selection:ies.invoice.schedule.line,state:0
+msgid "Paid"
+msgstr "Pagata"
+
+#. module: ies
+#: field:ies.quality.plan,approved_id:0
+msgid "Approved by"
+msgstr "Approvato da"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_revenue_share
+msgid "ies.revenue.share"
+msgstr "ies.revenue.share"
+
+#. module: ies
+#: field:ies.review,message_is_follower:0
+msgid "Is a Follower"
+msgstr "È un follower"
+
+#. module: ies
+#: field:ies.defaults,invoice_schedule_template_id:0
+msgid "Invoice schedule email"
+msgstr "Email scadenziario"
+
+#. module: ies
+#: field:ies.quality.plan.stage,name:0 field:ies.review,state:0
+msgid "Stage"
+msgstr "Fase"
+
+#. module: ies
+#: field:crm.lead.action,date:0 field:ies.feedback,f_date:0
+#: field:ies.feedback,h_date:0 field:ies.quality.plan.stage,date:0
+#: view:ies.review:0 field:ies.review,date:0
+msgid "Date"
+msgstr "Data"
+
+#. module: ies
+#: field:ies.feedback,f_interviewer:0 field:ies.feedback,h_interviewer:0
+msgid "Interviewer"
+msgstr "Responsabile"
+
+#. module: ies
+#: model:ir.actions.act_window,name:ies.action_feedback
+#: model:ir.ui.menu,name:ies.menu_feedback
+msgid "Interviews"
+msgstr "Sondaggi"
+
+#. module: ies
+#: field:ies.reminder.rule,uom:0 field:ies.review.service.line,uom_id:0
+msgid "Unit of measure"
+msgstr "Unità di misura"
+
+#. module: ies
+#: field:ies.review,fee:0
+msgid "Commercial fee %"
+msgstr "Fee commerciali %"
+
+#. module: ies
+#: view:ies.reminder.watcher:0
+#: model:ir.actions.act_window,name:ies.action_watchers
+#: model:ir.ui.menu,name:ies.menu_watchers
+msgid "Watchers"
+msgstr "Controllori"
+
+#. module: ies
+#: field:ies.review,vadded:0
+msgid "Value added %"
+msgstr "Valore aggiunto %"
+
+#. module: ies
+#: field:account.analytic.account,date_create:0 field:ies.feedback,date:0
+#: field:ies.quality.plan,date:0
+msgid "Creation date"
+msgstr "Data creazione"
+
+#. module: ies
+#: model:ir.ui.menu,name:ies.menu_config
+msgid "IES"
+msgstr "IES"
+
+#. module: ies
+#: view:account.analytic.account:0 field:account.invoice,contract_id:0
+#: field:ies.feedback,contract_id:0
+#: field:ies.invoice.schedule.line,contract_id:0
+#: field:ies.review,contract_id:0 selection:ies.review,state:0
+msgid "Contract"
+msgstr "Contratto"
+
+#. module: ies
+#: model:ir.model,name:ies.model_crm_phonecall
+msgid "Phonecall"
+msgstr "Chiamata"
+
+#. module: ies
+#: field:ies.review,quality_stage_ids:0
+msgid "Plan stages"
+msgstr "Fasi piano"
+
+#. module: ies
+#: field:ies.feedback,partner_id:0 view:ies.review:0
+msgid "Client"
+msgstr "Cliente"
+
+#. module: ies
+#: help:ies.reminder.watcher,res_id:0
+msgid "ID of the object to monitor"
+msgstr ""
+
+#. module: ies
+#: model:ir.model,name:ies.model_crm_lead_action
+msgid "Lead advancement action"
+msgstr "Azione lead"
+
+#. module: ies
+#: field:crm.lead.action,name:0
+msgid "Action"
+msgstr "Azione"
+
+#. module: ies
+#: model:product.category,name:ies.product_category_cafr
+msgid "Created automatically from review"
+msgstr "Creato automaticamente da riesame"
+
+#. module: ies
+#: view:ies.feedback:0
+msgid "Fetch"
+msgstr "Scarica"
+
+#. module: ies
+#: field:ies.review.service.line,quantity:0
+msgid "Quantity"
+msgstr "Quantità"
+
+#. module: ies
+#: field:ies.review,average_market_price:0
+msgid "Average market price"
+msgstr "Quotazione a prezzi medi di mercato"
+
+#. module: ies
+#: field:crm.lead.action,state:0 field:ies.reminder.watcher,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_review_service_line
+msgid "ies.review.service.line"
+msgstr "ies.review.service.line"
+
+#. module: ies
+#: view:ies.feedback:0
+msgid "Feedback"
+msgstr "Feedback"
+
+#. module: ies
+#: field:ies.review,user_id:0
+msgid "Creator"
+msgstr "Creatore"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_reminder_rule
+msgid "ies.reminder.rule"
+msgstr "ies.reminder.rule"
+
+#. module: ies
+#: field:ies.revenue.share,code:0
+msgid "Number"
+msgstr "Numero"
+
+#. module: ies
+#: view:account.invoice:0
+msgid "Register shares"
+msgstr "Registra ripartizioni"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_feedback
+msgid "ies.feedback"
+msgstr "ies.feedback"
+
+#. module: ies
+#: selection:ies.review,state:0
+msgid "Head check"
+msgstr "Controllo head"
+
+#. module: ies
+#: field:ies.review,gm_id:0
+msgid "General manager"
+msgstr "General manager"
+
+#. module: ies
+#: field:ies.invoice.schedule.line,invoice_id:0
+#: field:ies.revenue.share,invoice_id:0
+#: model:ir.model,name:ies.model_account_invoice
+msgid "Invoice"
+msgstr "Fattura"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Lock"
+msgstr "Blocca"
+
+#. module: ies
+#: model:ir.model,name:ies.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Lead/Opportunità"
+
+#. module: ies
+#: model:ir.ui.menu,name:ies.menu_aftersale
+msgid "Aftersale"
+msgstr "Post vendita"
+
+#. module: ies
+#: help:ies.feedback,date:0
+msgid "Date of creation of the document"
+msgstr "Data creazione documento"
+
+#. module: ies
+#: selection:ies.invoice.schedule.line,state:0 view:ies.review:0
+msgid "Open"
+msgstr "Aperto"
+
+#. module: ies
+#: model:ir.model,name:ies.model_ies_feedback_question
+msgid "ies.feedback.question"
+msgstr "ies.feedback.question"
+
+#. module: ies
+#: field:ies.review,gtp:0
+msgid "Gross total price"
+msgstr "Importo totale"
+
+#. module: ies
+#: model:mail.message.subtype,name:ies.mt_review_state
+msgid "Phase change"
+msgstr "Cambiamento stato"
+
+#. module: ies
+#: view:sale.order:0
+msgid "false"
+msgstr "falso"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid ""
+"Once the end date of the contract is passed\n"
+"the account manager is notified by email."
+msgstr ""
+"Quando la data di scadenza del contratto è passata"
+"il gestore conti è avvisato per email."
+
+#. module: ies
+#: view:ies.review:0
+msgid "Technical review"
+msgstr "Riesame tecnico"
+
+#. module: ies
+#: help:ies.review,output:0
+msgid "In qualitative and quantitative terms"
+msgstr "in termini qualitativi e quantitativi"
+
+#. module: ies
+#: selection:ies.feedback,f_result:0 selection:ies.feedback,h_result:0
+msgid "Positive"
+msgstr "positivo"
+
+#. module: ies
+#: field:ies.quality.plan.stage,responsible_id:0
+msgid "Responsible"
+msgstr "Responsabile"
+
+#. module: ies
+#: view:ies.review:0
+msgid "The General Manager is in charge of this part"
+msgstr "A cura del GM"
+
+#. module: ies
+#: field:ies.feedback,date_end:0
+msgid "Contract end"
+msgstr "Fine contratto"
+
+#. module: ies
+#: selection:ies.quality.plan.stage,result:0
+msgid "Barely passed"
+msgstr "Sufficiente"
+
+#. module: ies
+#: field:ies.reminder.watcher,field:0
+msgid "Field"
+msgstr "Campo"
+
+#. module: ies
+#: view:ies.review:0
+msgid ""
+"It is necessary to review the organization or contract outputs, or carry out "
+"a quality check plan or corrective actions"
+msgstr ""
+"È necessario rivedere l'organizzazione o gli output contrattuali o mettere "
+"in atto un piano di controllo qualità o delle azioni correttive"
+
+#. module: ies
+#: selection:crm.lead.action,state:0
+msgid "Other"
+msgstr "Altro"
+
+#. module: ies
+#: field:crm.lead.action,phonecall_id:0
+msgid "Call"
+msgstr "Chiamata"
+
+#. module: ies
+#: view:ies.feedback:0
+msgid "Final interview"
+msgstr "Sondaggio finale"
+
+#. module: ies
+#: selection:ies.quality.plan.stage,result:0
+msgid "Not passed"
+msgstr "Non superato"
+
+#. module: ies
+#: view:ies.feedback:0 field:ies.feedback.question,interview_id:0
+msgid "Interview"
+msgstr "Sondaggio"
+
+#. module: ies
+#: field:ies.review,order_id:0 selection:ies.review,state:0
+msgid "Proposal"
+msgstr "Proposta"
+
+#. module: ies
+#: field:ies.defaults,description:0 field:ies.revenue.share,desc:0
+msgid "Description"
+msgstr "Descrizione"
+
+#. module: ies
+#: model:ir.actions.act_window,name:ies.action_revenue_shares
+#: model:ir.ui.menu,name:ies.menu_revenue_shares
+msgid "Revenue shares"
+msgstr "Ripartizioni incassi"
+
+#. module: ies
+#: view:ies.feedback:0
+msgid "Intermediate interview"
+msgstr "Sondaggio in itinere"
+
+#. module: ies
+#: help:ies.review,risk:0
+msgid "Low: >90%; Mid: 60%-90%; High: <60%"
+msgstr ""
+
+#. module: ies
+#: field:ies.review,fom_va:0
+msgid "1st operative margin"
+msgstr "1° margine operativo"
+
+#. module: ies
+#: field:sale.order,dropbox:0
+msgid "Dropbox link"
+msgstr "link Dropbox"
+
+#. module: ies
+#: field:crm.lead.action,next_date:0
+msgid "Next action date"
+msgstr "Data prossima azione"
+
+#. module: ies
+#: view:ies.review:0
+msgid ""
+"The work is fully under the PM's control without any specific quality check "
+"plan"
+msgstr ""
+"Il lavoro è sotto il pieno controllo del PM senza alcun piano controllo "
+"qualità specifico"
+
+#. module: ies
+#: model:ir.actions.act_window,name:ies.action_partner_credits
+#: view:res.partner:0
+msgid "Credits"
+msgstr "Crediti"
+
+#. module: ies
+#: view:ies.review:0
+msgid "To date"
+msgstr "A data"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "View all invoices"
+msgstr "Vedi tutte le fatture"
+
+#. module: ies
+#: model:ir.actions.act_window,help:ies.action_contracts
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"\t\t\tContracts are created automatically from reviews.\n"
+"\t\t</p><p>\n"
+"\t\t\tUse contracts to follow tasks, issues, timesheets or invoicing based "
+"on\n"
+"\t\t\twork done, expenses and/or sales orders. OpenERP will automatically "
+"manage\n"
+"\t\t\tthe alerts for the renewal of the contracts to the right salesperson.\n"
+"\t\t</p>\n"
+"\t"
+msgstr ""
+
+#. module: ies
+#: field:ies.invoice.schedule.line,name:0
+msgid "Phase"
+msgstr "Fase"
+
+#. module: ies
+#: view:ies.quality.plan:0 view:ies.review:0
+#: field:ies.review,quality_plan_id:0
+#: model:ir.model,name:ies.model_ies_quality_plan
+msgid "Quality check plan"
+msgstr "Piano controllo qualità"
+
+#. module: ies
+#: field:ies.review,opportunity_id:0
+msgid "Opportunity"
+msgstr "Opportunità"
+
+#. module: ies
+#: help:res.partner,dimension:0
+msgid "Sales figures, employees"
+msgstr ""
+
+#. module: ies
+#: model:res.groups,name:ies.group_see_contracts_menu
+msgid "See default Contracts menu"
+msgstr "Vedi menu contratti di base"
+
+#. module: ies
+#: view:ies.review:0
+msgid "The Project Director is in charge of this part"
+msgstr "A cura del PD"
+
+#. module: ies
+#: field:ies.review,partner_id:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: ies
+#: field:ies.review,pnv:0
+msgid "Price excluding VAT"
+msgstr "Prezzo netto IVA"
+
+#. module: ies
+#: field:ies.revenue.share.line,partner_id:0
+#: field:ies.review.service.line,partner_id:0
+msgid "Resource"
+msgstr "Risorsa"
+
+#. module: ies
+#: field:ies.feedback,name:0 field:ies.quality.plan,name:0
+#: field:ies.reminder.rule,name:0 field:ies.review.service.line,name:0
+msgid "Name"
+msgstr "Nome"
+
+#. module: ies
+#: field:ies.quality.plan.stage,consultant_id:0
+msgid "Consultant"
+msgstr "Consulente"
+
+#. module: ies
+#: selection:ies.reminder.rule,uom:0
+msgid "Days"
+msgstr "Giorni"
+
+#. module: ies
+#: field:ies.feedback,f_question_ids:0 field:ies.feedback,h_question_ids:0
+#: view:ies.feedback.question:0
+msgid "Questions"
+msgstr "Domande"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Work end"
+msgstr "Fine lavori"
+
+#. module: ies
+#: field:ies.feedback,f_projected_date:0 field:ies.feedback,h_projected_date:0
+#: field:ies.invoice.schedule.line,date:0
+msgid "Projected date"
+msgstr "Data prevista"
+
+#. module: ies
+#: view:ies.defaults:0
+#: model:ir.actions.act_window,name:ies.action_ies_defaults
+#: model:ir.ui.menu,name:ies.menu_defaults
+msgid "Defaults"
+msgstr "Defaults"
+
+#. module: ies
+#: field:ies.review,question_3:0
+msgid "The service has already been successfully done"
+msgstr "Il servizio è già stato svolto con successo"
+
+#. module: ies
+#: field:ies.review.service.line,output:0
+msgid "Output"
+msgstr "Output"
+
+#. module: ies
+#: field:ies.reminder.watcher,model:0
+msgid "Model"
+msgstr "Modello"
+
+#. module: ies
+#: field:ies.review,message_summary:0
+msgid "Summary"
+msgstr "Sommario"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Approve"
+msgstr "Approva"
+
+#. module: ies
+#: help:ies.review,message_ids:0
+msgid "Messages and communication history"
+msgstr "Storico messaggi e comnicazioni"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Invoicing"
+msgstr "Fatturazione"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Revenue distribution"
+msgstr "Distribuzione incassi"
+
+#. module: ies
+#: field:account.analytic.account,schedule_line_ids:0
+msgid "Invoicing plan"
+msgstr "Scadenziario"
+
+#. module: ies
+#: field:ies.review,fom:0
+msgid "1st operative margin %"
+msgstr "1° margine operativo %"
+
+#. module: ies
+#: field:ies.quality.plan,prepared_id:0
+msgid "Prepared by"
+msgstr "Preparato da"
+
+#. module: ies
+#: field:ies.reminder.rule,seconds:0
+msgid "Sequence"
+msgstr "Sequenza"
+
+#. module: ies
+#: field:ies.revenue.share,partner_id:0
+msgid "Contract client"
+msgstr "Cliente contratto"
+
+#. module: ies
+#: view:ies.invoice.schedule.line:0
+msgid "Invoicing schedule"
+msgstr "Scadenziario"
+
+#. module: ies
+#: view:account.analytic.account:0
+msgid "Time frame"
+msgstr "Tempistica"
+
+#. module: ies
+#: view:crm.lead:0 field:crm.lead,action_ids:0
+msgid "Actions"
+msgstr "Azioni"
+
+#. module: ies
+#: selection:crm.lead,success_level:0
+#: selection:ies.review,client_profitability:0
+#: selection:ies.review,prospect_perceived_value:0
+#: selection:ies.review,reliability:0 selection:res.partner,reliability:0
+msgid "High"
+msgstr "Alto"
+
+#. module: ies
+#: help:ies.defaults,review_product_category_id:0
+msgid "'type' must be 'normal'"
+msgstr "Il campo 'type' deve essere 'nomal'"
+
+#. module: ies
+#: field:ies.review.service.line,price:0
+msgid "Cost"
+msgstr "Costo"
+
+#. module: ies
+#: field:crm.lead,success_level:0
+msgid "Success chance"
+msgstr "Possibilità di successo"
+
+#. module: ies
+#: field:ies.review,fee_partner_id:0
+msgid "Fee recipient"
+msgstr "Destinatario fee"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Confirm proposal and create contract. Are you sure?"
+msgstr "Conferma proposta e crea contratto. Sei sicuro?"
+
+#. module: ies
+#: field:ies.feedback,f_modality:0 field:ies.feedback,h_modality:0
+#: field:ies.quality.plan.stage,modality:0
+msgid "Modality"
+msgstr "modalità"
+
+#. module: ies
+#: model:email.template,subject:ies.template_invoice_schedule_reminder
+msgid "[OpenERP reminder]Invoice emission deadline"
+msgstr "[Promemoria OpenERP]Emissione fattura"
+
+#. module: ies
+#: view:ies.review:0
+msgid "Cancel review"
+msgstr "Annulla riesame"
+
+#. module: ies
+#: view:crm.lead:0
+msgid "Action"
+msgstr "Azione"
+
+#. module: ies
+#: model:ir.actions.act_window,name:sale.action_quotations
+#: model:ir.ui.menu,name:sale.menu_sale_quotations
+#: view:sale.order:0
+#: view:sale.report:0
+msgid "Proposals"
+msgstr "Proposte"
+
+#. module: ies
+#: model:ir.actions.act_window,name:sale.action_orders
+#: model:ir.ui.menu,name:sale.menu_sale_order
+#: view:sale.order:0
+msgid "Accepted proposals"
+msgstr "Proposte accettate"

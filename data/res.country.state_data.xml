@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+	<!-- remove american states created by the 'base' module-->
+	<delete model="res.country.state" id="base.state_us_1"/>
+	<delete model="res.country.state" id="base.state_us_2"/>
+	<delete model="res.country.state" id="base.state_us_3"/>
+	<delete model="res.country.state" id="base.state_us_4"/>
+	<delete model="res.country.state" id="base.state_us_5"/>
+	<delete model="res.country.state" id="base.state_us_6"/>
+	<delete model="res.country.state" id="base.state_us_7"/>
+	<delete model="res.country.state" id="base.state_us_8"/>
+	<delete model="res.country.state" id="base.state_us_9"/>
+	<delete model="res.country.state" id="base.state_us_10"/>
+	<delete model="res.country.state" id="base.state_us_11"/>
+	<delete model="res.country.state" id="base.state_us_12"/>
+	<delete model="res.country.state" id="base.state_us_13"/>
+	<delete model="res.country.state" id="base.state_us_14"/>
+	<delete model="res.country.state" id="base.state_us_15"/>
+	<delete model="res.country.state" id="base.state_us_16"/>
+	<delete model="res.country.state" id="base.state_us_17"/>
+	<delete model="res.country.state" id="base.state_us_18"/>
+	<delete model="res.country.state" id="base.state_us_19"/>
+	<delete model="res.country.state" id="base.state_us_20"/>
+	<delete model="res.country.state" id="base.state_us_21"/>
+	<delete model="res.country.state" id="base.state_us_22"/>
+	<delete model="res.country.state" id="base.state_us_23"/>
+	<delete model="res.country.state" id="base.state_us_24"/>
+	<delete model="res.country.state" id="base.state_us_25"/>
+	<delete model="res.country.state" id="base.state_us_26"/>
+	<delete model="res.country.state" id="base.state_us_27"/>
+	<delete model="res.country.state" id="base.state_us_28"/>
+	<delete model="res.country.state" id="base.state_us_29"/>
+	<delete model="res.country.state" id="base.state_us_30"/>
+	<delete model="res.country.state" id="base.state_us_31"/>
+	<delete model="res.country.state" id="base.state_us_32"/>
+	<delete model="res.country.state" id="base.state_us_33"/>
+	<delete model="res.country.state" id="base.state_us_34"/>
+	<delete model="res.country.state" id="base.state_us_35"/>
+	<delete model="res.country.state" id="base.state_us_36"/>
+	<delete model="res.country.state" id="base.state_us_37"/>
+	<delete model="res.country.state" id="base.state_us_38"/>
+	<delete model="res.country.state" id="base.state_us_39"/>
+	<delete model="res.country.state" id="base.state_us_40"/>
+	<delete model="res.country.state" id="base.state_us_41"/>
+	<delete model="res.country.state" id="base.state_us_42"/>
+	<delete model="res.country.state" id="base.state_us_43"/>
+	<delete model="res.country.state" id="base.state_us_44"/>
+	<delete model="res.country.state" id="base.state_us_45"/>
+	<delete model="res.country.state" id="base.state_us_46"/>
+	<delete model="res.country.state" id="base.state_us_47"/>
+	<delete model="res.country.state" id="base.state_us_48"/>
+	<delete model="res.country.state" id="base.state_us_49"/>
+	<delete model="res.country.state" id="base.state_us_50"/>
+	<delete model="res.country.state" id="base.state_us_51"/>
+	
+	<!--Create italian regions-->
+	<!--!!! I codici di regione sono inventati !!!-->
+	<record model="res.country.state" id="abruzzo">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Abruzzo</field>
+		<field name="code">ABR</field>
+	</record>
+	<record model="res.country.state" id="basilicata">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Basilicata</field>
+		<field name="code">BAS</field>
+	</record>
+	<record model="res.country.state" id="calabria">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Calabria</field>
+		<field name="code">CAL</field>
+	</record>
+	<record model="res.country.state" id="campania">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Campania</field>
+		<field name="code">CAM</field>
+	</record>
+	<record model="res.country.state" id="emilia">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Emilia-Romagna</field>
+		<field name="code">EMR</field>
+	</record>
+	<record model="res.country.state" id="friuli">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Friuli-Venezia Giulia</field>
+		<field name="code">FVG</field>
+	</record>
+	<record model="res.country.state" id="lazio">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Lazio</field>
+		<field name="code">LAZ</field>
+	</record>
+	<record model="res.country.state" id="liguria">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Liguria</field>
+		<field name="code">LIG</field>
+	</record>
+	<record model="res.country.state" id="lombardia">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Lombardia</field>
+		<field name="code">LOM</field>
+	</record>
+	<record model="res.country.state" id="marche">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Marche</field>
+		<field name="code">MAR</field>
+	</record>
+	<record model="res.country.state" id="molise">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Molise</field>
+		<field name="code">MOL</field>
+	</record>
+	<record model="res.country.state" id="piemonte">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Piemonte</field>
+		<field name="code">PIE</field>
+	</record>
+	<record model="res.country.state" id="puglia">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Puglia</field>
+		<field name="code">PUG</field>
+	</record>
+	<record model="res.country.state" id="sardegna">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Sardegna</field>
+		<field name="code">SAR</field>
+	</record>
+	<record model="res.country.state" id="sicilia">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Sicilia</field>
+		<field name="code">SIC</field>
+	</record>
+	<record model="res.country.state" id="toscana">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Toscana</field>
+		<field name="code">TOS</field>
+	</record>
+	<record model="res.country.state" id="trentino">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Trentino-Alto Adige</field>
+		<field name="code">TAG</field>
+	</record>
+	<record model="res.country.state" id="umbria">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Umbria</field>
+		<field name="code">UMB</field>
+	</record>
+	<record model="res.country.state" id="aosta">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Valle d'Aosta</field>
+		<field name="code">VdA</field>
+	</record>
+	<record model="res.country.state" id="veneto">
+		<field name="country_id" ref="base.it"/>
+		<field name="name">Veneto</field>
+		<field name="code">VEN</field>
+	</record>
+</data>
+</openerp>

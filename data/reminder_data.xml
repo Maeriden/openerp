@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<!--Alarm rule specific for contract expiration reminders-->
+<record model="ies.reminder.rule" id="reminder_rule_0hb">
+	<field name="name">On time (hourly)</field>
+	<field name="delta">0</field>
+	<field name="uom">hours</field>
+	<field name="occurs">before</field>
+</record>
+<record model="ies.reminder.rule" id="reminder_rule_30db">
+	<field name="name">30 days before</field>
+	<field name="delta">30</field>
+	<field name="uom">days</field>
+	<field name="occurs">before</field>
+</record>
+</data>
+</openerp>

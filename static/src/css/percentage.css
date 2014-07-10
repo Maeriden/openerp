@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/* Stops the percent sign from going below the field */
+.openerp .oe_form .oe_form_field_percentage
+{
+	white-space: nowrap;
+}
+
+.openerp .oe_form_editable .oe_form .oe_float_input_shrink .oe_form_field_float.oe_form_field_monetary input
+{
+	width: 6em;
+}
+
+.openerp .oe_form_editable .oe_form .oe_float_input_shrink .oe_form_field_float.oe_form_field_percentage input
+{
+	width: 5em;
+}
+
+
+.openerp .oe_form table .oe_form_field_percentage,
+.openerp .oe_form table .oe_form_field_monetary
+{
+	padding-right: 12px;
+}
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<record model="res.groups" id="base.group_sale_salesman">
+    <field name="name">See own Sales</field>
+    <field name="category_id" ref="base.module_category_hidden"/>
+</record>
+
+<record model="res.groups" id="base.group_sale_salesman_all_leads">
+    <field name="name">Salesman</field>
+</record>
+
+<record model="res.groups" id="group_sale_head">
+	<field name="name">Head</field>
+	<field name="category_id" ref="base.module_category_sales_management"/>
+	<field name="implied_ids" eval="[(4,ref('base.group_sale_salesman_all_leads'))]"/>
+	<field name="comment">Heads validate reviews before managers do</field>
+</record>
+
+<record model="res.groups" id="base.group_sale_manager">
+    <field name="name">Manager</field>
+    <field name="category_id" ref="base.module_category_sales_management"/>
+    <field name="implied_ids" eval="[(4, ref('ies.group_sale_head'))]"/>
+</record>
+
+<record model="res.groups" id="group_see_contracts_menu">
+	<field name="name">See default Contracts menu</field>
+	<field name="category_id" ref="base.module_category_hidden"/>
+	<field name="comment">Hides the "/Sales/Sales/Contracts" menu created by
+account.analytic.analysis for any user not in the group (ideally everyone).
+The menu is to be replaced by this module's version that uses custom views.
+	</field>
+</record>
+</data>
+
+<data> <!--Allow grouping by category-->
+<record model="ir.ui.view" id="res_group_search_inherit">
+	<field name="name">res.groups.search.inherit</field>
+	<field name="model">res.groups</field>
+	<field name="inherit_id" ref="base.view_groups_search"/>
+	<field name="arch" type="xml">
+		<xpath expr="/search/field[@name='name']" position="after">
+			<group string="Group by">
+				<filter name="category" string="Category" domain="[]"
+					context="{'group_by': 'category_id'}"
+					/>
+			</group>
+		</xpath>
+	</field>
+</record>
+</data>
+</openerp>

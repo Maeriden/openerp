@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<record model="mail.message.subtype" id="mt_review_state">
+	<field name="name">Phase change</field>
+	<field name="res_model">ies.review</field>
+	<field name="default" eval="True"/>
+	<field name="description">Changes in the document state</field>
+</record>
+</data>
+</openerp>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<!--
+<record model="ir.actions.act_window" id="action_partner_credits_debits">
+	<field name="name">Credits&amp;Debits</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">account.invoice</field>
+	<field name="src_model">res.partner</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+	<field name="search_view_id" ref="account.view_account_invoice_filter"/>
+	<field name="domain">[]</field>
+	<field name="context">{"search_default_unpaid":1, "search_default_partner_id":active_id, "group_by": "type"}</field>
+</record>
+-->
+<record model="ir.actions.act_window" id="action_partner_debits">
+	<field name="name">Debits</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">account.invoice</field>
+	<field name="src_model">res.partner</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+	<field name="search_view_id" ref="account.view_account_invoice_filter"/>
+	<field name="domain">[("type", "in", ["out_invoice", "in_refund"])]</field>
+	<field name="context">{"search_default_unpaid":1, "search_default_partner_id":active_id, "group_by": "type"}</field>
+</record>
+<record model="ir.actions.act_window" id="action_partner_credits">
+	<field name="name">Credits</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">account.invoice</field>
+	<field name="src_model">res.partner</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+	<field name="search_view_id" ref="account.view_account_invoice_filter"/>
+	<field name="domain">[("type", "in", ["in_invoice", "out_refund"])]</field>
+	<field name="context">{"search_default_unpaid":1, "search_default_partner_id":active_id, "group_by": "type"}</field>
+</record>
+
+
+<record model="ir.ui.view" id="res_partner_form_inherit">
+    <field name="name">res.partner.form.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+    	<xpath expr="/form/sheet/div[@name='buttons']" position="inside">
+    		<button name="%(ies.action_partner_debits)d" string="Debits" type="action"
+    			attrs="{'invisible': [('customer','=',False), ('supplier','=',False)]}"
+    		/>
+    		<button name="%(ies.action_partner_credits)d" string="Credits" type="action"
+    			attrs="{'invisible': [('customer','=',False), ('supplier','=',False)]}"
+    		/>
+    	</xpath>
+    	<xpath expr="/form/sheet/group[1]" position="after">
+    		<group attrs="{'invisible': [('is_company','=',False)] }">
+    			<group>
+    				<field name="operative_venues"/>
+    				<field name="dimension"/>
+    			</group>
+    			<group>
+    				<field name="reliability" on_change="onchange_reliability(reliability)"/>
+    			</group>
+    		</group>
+    	</xpath>
+    	<!--
+    	<xpath expr="/form/sheet/notebook/page[@string='Sales &amp; Purchases']/group[1]/group[2]/field[@name='supplier']" position="after">
+    		<field name="employee"/>
+    	</xpath>
+    	-->
+    	<xpath expr="//field[@name='supplier']" position="after">
+    		<field name="employee"/>
+    	</xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

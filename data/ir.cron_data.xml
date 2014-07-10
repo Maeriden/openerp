@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="1">
+<!--This job monitors reminders trigger date-->
+<!--Checks are delegated to general "alarms" that can work with any model-->
+<record model="ir.cron" id="cron_reminder_watcher_minutely">
+	<field name="name">Watchers (minutely)</field>
+	<field name="active" eval="True"/>
+	<field name="user_id" ref="base.user_root"/>
+	<field name="interval_number">1</field>
+	<field name="interval_type">minutes</field>
+	<field name="numbercall">-1</field>
+	<field name="doall" eval="False"/>
+	<field name="model">ies.reminder.watcher</field>
+	<field name="function">cron_check</field>
+	<field name="args">("minutes",)</field>
+</record>
+<record model="ir.cron" id="cron_reminder_watcher_hourly">
+	<field name="name">Watchers (hourly)</field>
+	<field name="active" eval="True"/>
+	<field name="user_id" ref="base.user_root"/>
+	<field name="interval_number">1</field>
+	<field name="interval_type">hours</field>
+	<field name="numbercall">-1</field>
+	<field name="doall" eval="True"/>
+	<field name="model">ies.reminder.watcher</field>
+	<field name="function">cron_check</field>
+	<field name="args">("hours",)</field>
+</record>
+<record model="ir.cron" id="cron_reminder_watcher_daily">
+	<field name="name">Watchers (daily)</field>
+	<field name="active" eval="True"/>
+	<field name="user_id" ref="base.user_root"/>
+	<field name="interval_number">1</field>
+	<field name="interval_type">days</field>
+	<field name="numbercall">-1</field>
+	<field name="doall" eval="True"/>
+	<field name="model">ies.reminder.watcher</field>
+	<field name="function">cron_check</field>
+	<field name="args">("days",)</field>
+</record>
+
+<!--
+<record model="ir.cron" id="account_analytic_analysis.account_analytic_cron">
+	<field name="name">Contract expiration reminder</field>
+	<field name="interval_number">1</field>
+	<field name="interval_type">minutes</field>
+	<field name="numbercall">-1</field>
+	<field name="doall" eval="False"/>
+	<field name="model">account.analytic.account</field>
+	<field name="function">cron_account_analytic_account</field>
+	<field name="args">()</field>
+</record>
+-->
+<!--
+<record model="ir.cron" id="cron_supplier_invoice_delay">
+	<field name="name">Supplier invoice payment delay</field>
+	<field name="active" eval="True"/>
+	<field name="user_id" ref="base.user_root"/>
+	<field name="interval_number">1</field>
+	<field name="interval_type">days</field>
+	<field name="numbercall">-1</field>
+	<field name="doall" eval="True"/>
+	<field name="model">account.invoice</field>
+	<field name="function">cron_supplier_payment_delay</field>
+	<field name="args">()</field>
+</record>
+-->
+</data>
+</openerp>

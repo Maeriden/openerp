@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+<t t-name="FieldPercentage" t-extend="FieldChar">
+	<t t-jquery="t:last" t-operation="after">%</t>
+</t>
+</templates>
