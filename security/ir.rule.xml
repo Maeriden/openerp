@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <openerp>
 <!-- "perm_x" means "apply the rule for this operation?" -->
-<data noupdate="0"><!-- SET TO 1 -->
+<data noupdate="1"><!-- SET TO 1 -->
 <!--
 <record model="ir.rule" id="rule_ies_review_contract_lock">
 	<field name="name">Deny modification after contract creation</field>

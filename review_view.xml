@@ -24,6 +24,7 @@ Black = else
 		</tree>
 	</field>
 </record>
+
 <record model="ir.ui.view" id="review_form">
 	<field name="name">ies.review.form</field>
 	<field name="model">ies.review</field>
@@ -34,46 +35,36 @@ Black = else
 		<header>
 			<button name="btn_lock" string="Lock" type="object"
 				class="oe_highlight" states="draft" groups="ies.group_sale_head"
-				confirm="Are you sure?"
-				/>
+				confirm="Are you sure?"/>
 			<button name="btn_lock" string="Lock" type="object"
 				class="oe_highlight" states="head" groups="base.group_sale_manager"
-				confirm="Are you sure?"
-				/>
+				confirm="Are you sure?"/>
 			<button name="btn_manager_approve" string="Approve" type="object"
 				class="oe_highlight" states="manager" groups="base.group_sale_manager"
-				confirm="Are you sure?"
-				/>
+				confirm="Are you sure?"/>
 			<button name="btn_reject" string="Reject" type="object"
 				states="head" groups="ies.group_sale_head"
-				confirm="Are you sure?"
-				/>
+				confirm="Are you sure?"/>
 			<button name="btn_reject" string="Reject" type="object"
 				states="manager" groups="base.group_sale_manager"
-				confirm="Are you sure?"
-				/>
+				confirm="Are you sure?"/>
 			<button name="btn_create_proposal" string="Create proposal" type="object"
 				class="oe_highlight" states="approved"
-				confirm="Are you sure?"
-				/>
+				confirm="Are you sure?"/>
 			<button name="btn_create_contract" string="Create contract" type="object"
 				class="oe_highlight" states="proposal"
-				confirm="Confirm proposal and create contract. Are you sure?"
-				/>
+				confirm="Confirm proposal and create contract. Are you sure?"/>
 			<button name="btn_btn_tasks_email" string="Notify resources" type="object"
 				states="contract"
-				confirm="Are you sure?"
-				/>
+				confirm="Are you sure?"/>
 			<button name="btn_cancel_review" string="Cancel review" type="object"
 				states="draft,head,manager,approved,proposal"
-				confirm="Cancelling a review will also cancel its proposal (if it exists). Are you sure?"
-				/>
+				confirm="Cancelling a review will also cancel its proposal (if it exists). Are you sure?"/>
 			<button name="btn_new_revision" string="New revision" type="object"
-				states="cancel"
-				/>
+				states="cancel"/>
+				
 			<field name="state" widget="statusbar"
-				statusbar_visible="draft,head,manager,approved,proposal,contract"
-				/>
+				statusbar_visible="draft,head,manager,approved,proposal,contract"/>
 		</header>
 		<sheet>
 			<h2 style="text-align:center">DRRIE01 (rev.11 2014-01-28)</h2>
@@ -298,7 +289,7 @@ Black = else
 		<field name="name" string="Service"/>
 		<field name="state" string="State"/>
 		<field name="date" string="From date" filter_domain="[('date','&gt;=',self)]"/>
-		<field name="date" string="To date" filter_domain="[('date','&lt;=',self)]"/>
+		<field name="date" string="To date"   filter_domain="[('date','&lt;=',self)]"/>
 		
 		<filter name="open" string="Open" domain="[('state', 'not in', ['contract','cancel'])]"/>
 		<filter name="accepted" string="Accepted" domain="[('state', '=', 'contract')]"/>
@@ -444,144 +435,3 @@ Black = else
 	
 </data>
 </openerp>
-
-
-
-
-
-
-
-				<!--
-				<group>
-					<field name="pnv" widget="monetary" options="{'currency_field': 'currency_id'}"
-						on_change="onchange_pnv(pnv, tpc, travel_expenses, sga, fee)" 
-						attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"
-					/>
-				</group>
-				<field name="service_line_ids"
-					context="{'tree_view_ref': 'ies.review_service_line_tree_embed'}"
-					attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"
-				/><! - on_change="onchange_service_line(service_line_ids)" - >
-				
-				<table class="oe_form_analytic_account">
-					<tr invisible="1"> <! -TPC shown on service tree with `sum` attr- >
-						<td class="oe_timesheet_grey">
-							<label for="tpc"/>
-						</td>
-						<td/>
-						<td>
-							<! -Field needed in the view for onchange functions- >
-							<field name="tpc" invisible="1" on_change="onchange_tpc(tpc, pnv, sga_va, fee_va)"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="oe_timesheet_grey">
-							<label for="vadded_va"/>
-						</td>
-						<td>
-							<field name="vadded" widget="percentage"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td>
-							<field name="vadded_va" widget="monetary" options="{'currency_field': 'currency_id'}"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="oe_timesheet_grey">
-							<label for="gm_id" attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td colspan="3">
-							<field name="gm_id" class="oe_inline"/>
-						</td>
-					</tr>
-					<tr>
-						<th width="1%%"/>
-						<th width="1%%" colspan="2"/>
-						<th class="oe_timesheet_grey">Notes</th>
-						<th class="oe_timesheet_grey" width="20%%"> <label for="fee_partner_id"/> </th>
-					</tr>
-					<tr>
-						<td class="oe_timesheet_grey"> <label for="sga_va"/> </td>
-						<td>
-							<field name="sga" widget="percentage"
-								on_change="onchange_splitting(pnv, tpc, sga, fee)"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"
-								/>
-						</td>
-						<td>
-							<field name="sga_va" widget="monetary" options="{'currency_field': 'currency_id'}"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td>
-							<field name="notes1"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="oe_timesheet_grey"> <label for="fee_va"/> </td>
-						<td>
-							<field name="fee" widget="percentage"
-								on_change="onchange_splitting(pnv, tpc, sga, fee)"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"
-								/>
-						</td>
-						<td>
-							<field name="fee_va" widget="monetary" options="{'currency_field': 'currency_id'}"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td>
-							<field name="notes2"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td>
-							<field name="fee_partner_id"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="oe_timesheet_grey"> <label for="fom_va"/> </td>
-						<td>
-							<field name="fom" widget="percentage"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td>
-							<field name="fom_va" widget="monetary" options="{'currency_field': 'currency_id'}"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td>
-							<field name="notes3"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="oe_timesheet_grey"> <label for="travel_expenses"/> </td>
-						<td/>
-						<td>
-							<field name="travel_expenses" widget="monetary" options="{'currency_field': 'currency_id'}"
-								on_change="onchange_travel_expenses(pnv, travel_expenses)"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"
-								/>
-						</td>
-						<td>
-							<field name="notes4"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-					</tr>
-					<tr>
-						<td class="oe_timesheet_grey"> <label for="gtp"/> </td>
-						<td/>
-						<td>
-							<field name="gtp" widget="monetary" options="{'currency_field': 'currency_id'}"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-						<td>
-							<field name="notes5"
-								attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
-						</td>
-					</tr>
-				</table>
-				<! -Needed to extend the sheet down to this tag- >
-				<div class="oe_clear"/>
-				-->

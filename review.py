@@ -42,7 +42,8 @@ Review document for IES marketing procedure.
 	#the subtype applies to the message
 	_track = {
 		"state": {
-			"ies.mt_review_state": lambda self,cr,u,obj,ctx=None: True,
+			#"ies.mt_review_state": lambda self,cr,u,obj,ctx=None: True,
+			"ies.mt_review_state": lambda *args: True,
 		},
 	}
 	
@@ -65,27 +66,46 @@ Review document for IES marketing procedure.
 		("no", "No"),
 	]
 	
-	def _review_from_lines(self, cr, uid, ids, context=None):
-		res = {}
-		for task in self.pool.get("ies.review.service.line").browse(cr, uid, ids, context):
-			res[task.review_id.id] = True # Any value will do
-		return res.keys()
-	
 	QUESTION_COUNT = 7
 	
+	def _review_from_lines(self, cr, uid, ids, context=None):
+		"""
+Called when ies.review.service.line are modified.
+Return the ids of reviews whose lines were modified
+Those ids are records that need to recalculate function field values
+that depend on service.line
+"""
+		res = {} # Using dict to avoid duplicate ids
+		for task in self.pool.get("ies.review.service.line").browse(cr, uid, ids, context):
+			res[task.review_id.id] = True # Any value will do, 
+		return res.keys()
+	
 	def _risk(self, cr, uid, ids, field, args, context=None):
-		fields = ["question_"+str(i+1) for i in range(self.QUESTION_COUNT)]
+		"""
+Calculates the function field "risk" value
+Return: dict {id: risk} with risk [0, 1]
+"""
 		res = {}
+		#Programmatically build field names to query their value
+		fields = ["question_"+str(i+1) for i in range(self.QUESTION_COUNT)]
 		for questions in self.read(cr, uid, ids, fields, context):
+			# read() returns the id field along any other queried field, we
+			# pop it so the only entries left in the dict are the questions
+			# This allows us to perform addition by looping over the values list
 			id = questions.pop("id")
 			score = sum( [float(v) for v in questions.values()] )
-			res[id] = score / self.QUESTION_COUNT
+			res[id] = score / self.QUESTION_COUNT # Normalize
 		return res
 	
 	def _cost_revenue(self, cr, uid, ids, fields, args, context=None):
+		"""
+Calculates the function fields values relative to costs and revenue
+Return: dict {id: dict{field: value}}
+(nested dict because it calculates more than one field)
+"""
 		res = {}
 		for this in self.browse(cr, uid, ids, context):
-			res[this.id] = vals = {"tpc": 0.0}
+			vals = {"tpc": 0.0}
 			for task in this.service_line_ids:
 				vals["tpc"] += task.price * task.quantity
 			tpc = vals["tpc"]
@@ -95,9 +115,14 @@ Review document for IES marketing procedure.
 			vals["fee_va"]    = fee = this.pnv * this.fee
 			vals["fom_va"]    = fom = this.pnv - tpc - sga - fee
 			vals["fom"]             = fom / this.pnv if this.pnv else 0.0
+			res[this.id] = vals
 		return res
 	
 	def _total_price(self, cr, uid, ids, field, args, context=None):
+		"""
+Calculates the function field "gtp"
+Return: dict {id: gtp}
+"""
 		res = {}
 		for this in self.browse(cr, uid, ids, context):
 			res[this.id] = this.pnv + this.travel_expenses
@@ -108,7 +133,7 @@ Review document for IES marketing procedure.
 	_columns = {
 		"user_id": fields.many2one("res.users", "Creator", readonly=True),
 	# Dati riesame
-		"state": fields.selection(STATES, "Stage", track_visibility="onchange"),
+		"state": fields.selection(STATES, "Stage"),
 		"previous_id": fields.many2one("ies.review", "Previous revision"),
 		
 		"name": fields.char("Service", 128, required=True),
@@ -204,12 +229,19 @@ Review document for IES marketing procedure.
 	}
 	
 	def _default_product_category(self, cr, uid, context=None):
+		"""
+Get the default category for the product created by this review (on proposal creation)
+Changing the category in the ies.defaults model allows for customization
+"""
 		categ = self.pool.get("ies.defaults").browse(cr, uid).review_product_category_id
 		if categ:
 			return categ.id
 		return self.pool.get("product.product")._default_category(cr, uid, context)
 	
 	def default_get(self, cr, uid, fields, context=None):
+		"""
+Add followers to new documents as specified in the ies.defaults configuration
+"""
 		vals = super(Review, self).default_get(cr, uid, fields, context)
 		if "message_follower_ids" in fields:
 			followers = self.pool.get("ies.defaults").browse(cr, uid).review_follower_ids
@@ -217,26 +249,36 @@ Review document for IES marketing procedure.
 		return vals
 	
 	def create(self, cr, uid, vals, context=None):
+		"""
+Ensures the creation of a quality check plan alongside each review
+"""
 		id = super(Review, self).create(cr, uid, vals, context)
-		pid = self.pool.get("ies.quality.plan").create(cr, uid, {"review_id": id}, context)
-		self.write(cr, uid, [id], {"quality_plan_id": pid}, context)
+		plan_id = self.pool.get("ies.quality.plan").create(cr, uid, {"review_id": id}, context)
+		self.write(cr, uid, [id], {"quality_plan_id": plan_id}, context)
 		return id
 
 
 	def _update_opportunity(self, cr, uid, this, stage, context=None):
-		if this.opportunity_id:
-			vals = {
-				"review_id": this.id,
-				"planned_revenue": this.gtp
-			}
-			domain = [("name", "=", stage), ("type", "in", ["opportunity", "both"])]
-			stage_ids = self.pool.get("crm.case.stage").search(cr, uid, domain, context=context)
-			if stage_ids:
-				vals["stage_id"] = stage_ids[0]
-			
-			self.pool.get("crm.lead").write(cr, uid, [this.opportunity_id.id], vals, context)
+		"""
+Called by various button functions to update the state of the linked crm.lead
+"""
+		if not this.opportunity_id:
+			return
+		vals = {
+			"review_id": this.id,
+			"planned_revenue": this.gtp
+		}
+		domain = [("name", "=", stage), ("type", "in", ["opportunity", "both"])]
+		stage_ids = self.pool.get("crm.case.stage").search(cr, uid, domain, context=context)
+		if stage_ids:
+			vals["stage_id"] = stage_ids[0]
+		
+		self.pool.get("crm.lead").write(cr, uid, [this.opportunity_id.id], vals, context)
 	
 	def _create_product(self, cr, uid, this, context=None):
+		"""
+Called on proposal creation
+"""
 		vals = {
 			"name": this.name,
 			"type": "service",
@@ -250,6 +292,9 @@ Review document for IES marketing procedure.
 		return product.browse(cr, uid, id, context)
 
 	def _create_proposal(self, cr, uid, this, context=None):
+		"""
+Called by btn_create_proposal(). Handles actually creating a sale.order record
+"""
 		product = self._create_product(cr, uid, this, context)
 		partner = self.pool.get("res.partner")
 		vals = {
@@ -268,31 +313,50 @@ Review document for IES marketing procedure.
 		}
 		return self.pool.get("sale.order").create(cr, uid, vals, context)
 
-	def _send_task_mails(self, cr, uid, this, context=None):
-		ids = [task.id for task in this.service_line_ids]
-		self.pool.get("ies.review.service.line").send_mail(cr, uid, ids, context)
+	# Moved to btn_tasks_emails()
+#	def _send_task_mails(self, cr, uid, this, context=None):
+#	"""
+#Called by btn_tasks_emails(). Actually sends emails to collaborators
+#"""
+#		ids = [task.id for task in this.service_line_ids]
+#		self.pool.get("ies.review.service.line").send_mail(cr, uid, ids, context)
 
 
 	def btn_lock(self, cr, uid, ids, context=None):
+		"""
+Changes the phase of the review. Changes to "manager" if the user belongs to
+the sale_manager group, else to "head"
+"""
 		user_groups = self.pool.get("res.users").browse(cr, uid, uid, context).groups_id
 		data = self.pool.get("ir.model.data")
 		manager_gid = data.get_object_reference(cr, uid, "base", "group_sale_manager")[1]
 		state = "head"
-		for g in user_groups:
-			if g.id == manager_gid:
+		for group in user_groups:
+			if group.id == manager_gid:
 				state = "manager"
 		self.write(cr, uid, ids, {"state": state}, context)
 	
 	def btn_manager_approve(self, cr, uid, ids, context=None):
+		"""
+Changes the phase of the review to "approved"
+"""
 		for this in self.browse(cr, uid, ids, context):
 			if not this.service_line_ids:
 				raise osv.except_osv("There isn't any service specification", this.name)
 		self.write(cr, uid, ids, {"state": "approved"}, context)
 		
 	def btn_reject(self, cr, uid, ids, context=None):
+		"""
+Changes the stage of the review back to "draft". Salesmen will need to modify
+the document and submit it again for approval
+"""
 		self.write(cr, uid, ids, {"state": "draft"}, context)
 
 	def btn_create_proposal(self, cr, uid, ids, context=None):
+		"""
+Creates a sale.order from the data in the review.
+Also updates the linked crm.lead
+"""
 		assert len(ids) == 1, "ies.review.btn_create_proposal(): len(ids) != 1"
 		this = self.browse(cr, uid, ids[0], context)
 		assert not this.order_id, "btn_create_proposal(): order_id already exists"
@@ -304,6 +368,7 @@ Review document for IES marketing procedure.
 		self.write(cr, uid, ids, {"order_id": order_id, "state": "proposal"}, context)
 		self._update_opportunity(cr, uid, this, "Proposition", context)
 		
+		# Go to proposal document
 		view = self.pool.get('ir.model.data').get_object_reference(cr, uid, "sale", "view_order_form")
 		return {
 			"type": 'ir.actions.act_window',
@@ -319,6 +384,10 @@ Review document for IES marketing procedure.
 
 	# Creates contract and call sale.order confirmation function
 	def btn_create_contract(self, cr, uid, ids, context=None):
+		"""
+Creates an account.analytic.account (contract) recrod from the given review
+Also updates the linked crm.lead and sale.order
+"""
 		assert len(ids) == 1, "ies.review.btn_create_contract(): len(ids) != 1"
 		this = self.browse(cr, uid, ids[0], context)
 		assert this.order_id, "btn_create_contract(): None order_id"
@@ -344,40 +413,46 @@ Review document for IES marketing procedure.
 		self.write(cr, uid, ids, {"contract_id": cid, "state": "contract"}, context)
 		self._update_opportunity(cr, uid, this, "Won", context)
 		
-		try:
-			view = self.pool.get('ir.model.data').get_object_reference(cr, uid, "ies", "contract_form")
-			return {
-				"type": 'ir.actions.act_window',
-				"name": "Contract",
-				"res_model": 'account.analytic.account',
-				"res_id": cid,
-				"view_mode": 'form',
-				"view_id": view[1],
-				"target": 'current',
-				"nodestroy": True,
-			}
-		except:
-		   	return True
+		view = self.pool.get('ir.model.data').get_object_reference(cr, uid, "ies", "contract_form")
+		return {
+			"type": 'ir.actions.act_window',
+			"name": "Contract",
+			"res_model": 'account.analytic.account',
+			"res_id": cid,
+			"view_mode": 'form',
+			"view_id": view[1],
+			"target": 'current',
+			"nodestroy": True,
+		} if view else True
 	
 	def btn_tasks_email(self, cr, uid, ids, context=None):
+		"""
+Tell ies.review.service.line to send a notification to each linked partner
+"""
 		assert len(ids) == 1, "ies.review.btn_send_assignment_mails(): len(ids) != 1"
-		this = self.browse(cr, uid, ids[0], context)
-		self._send_task_mails(cr, uid, this, context)
+		task_ids = [task.id for task in self.browse(cr, uid, ids[0], context).service_line_ids]
+		self.pool.get("ies.review.service.line").send_mail(cr, uid, task_ids, context)
+	#	self._send_task_mails(cr, uid, this, context)
 
 	# Invalidates review and proposal
 	def btn_cancel_review(self, cr, uid, ids, context=None):
+		"""
+Invalidates the review, along with the linked crm.lead and sale.order, if any
+"""
 		assert len(ids) == 1, "ies.review.btn_cancel_revision(): len(ids) != 1"
 		this = self.browse(cr, uid, ids[0], context)
-		
 		if this.order_id:
 			self.pool.get("sale.order").action_cancel(cr, uid, [this.order_id.id], context)
-		
 		self._update_opportunity(cr, uid, this, "Lost", context)
-		
 		return self.write(cr, uid, ids, {"state": "cancel"}, context)
 		
 	# Copies the review, increments revision number and invalidates this review
 	def btn_new_revision(self, cr, uid, ids, context=None):
+		"""
+Copies the review, increments rev. number and links with the previous rev.
+Discards any existing sale.order and contract, but keeps crm.lead
+The UI makes this available only for canceled reviews
+"""
 		assert len(ids) == 1, "ies.review.btn_new_revision(): len(ids) != 1"
 		this = self.browse(cr, uid, ids[0], context)
 		oppor_id = this.opportunity_id.id if this.opportunity_id else 0
@@ -392,25 +467,25 @@ Review document for IES marketing procedure.
 		that = self.browse(cr, uid, new_id, context)
 		self._update_opportunity(cr, uid, that, "Negotiation", context)
 		
-		try:
-			view = self.pool.get('ir.model.data').get_object_reference(cr, uid, "ies", "review_form")
-			return {
-				"type": 'ir.actions.act_window',
-				"name": "Contract",
-				"res_model": 'ies.review',
-				"res_id": new_id,
-				"view_type": "form",
-				"view_mode": "form",
-				"view_id": view[1],
-				"target": 'current',
-				"nodestroy": True,
-			}
-		except:
-			return True
+		view = self.pool.get('ir.model.data').get_object_reference(cr, uid, "ies", "review_form")
+		return {
+			"type": 'ir.actions.act_window',
+			"name": "Contract",
+			"res_model": 'ies.review',
+			"res_id": new_id,
+			"view_type": "form",
+			"view_mode": "form",
+			"view_id": view[1],
+			"target": 'current',
+			"nodestroy": True,
+		} if view else True
 
-##
+
 #\brief Fills fields with partner data (resets referent)
 	def onchange_partner(self, cr, uid, ids, partner_id, context=None):
+		"""
+Autofills fields related to the partner
+"""
 		vals = {}
 		if partner_id:
 			partner = self.pool.get("res.partner").browse(cr, uid, partner_id, context)
