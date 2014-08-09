@@ -80,12 +80,10 @@
 <record id="sale.action_quotations" model="ir.actions.act_window">
 	<field name="name">Proposals</field>
 </record>
+
 <record id="sale.action_orders" model="ir.actions.act_window">
 	<field name="name">Accepted proposals</field>
 </record>
-
-
-
 
 </data>
 </openerp>

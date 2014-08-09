@@ -1,6 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ies_review_user,ies.review,model_ies_review,base.group_sale_salesman,1,1,1,1
+access_ies_review_salesman,ies.review,model_ies_review,base.group_sale_salesman,1,1,1,1
 access_ies_review_service_line_user,ies.review.service.line,model_ies_review_service_line,base.group_sale_salesman,1,1,1,1
+access_ies_review_accountant,ies.review,model_ies_review,account.group_account_user,1,0,0,0
+access_ies_review_service_line_accountant,ies.review.service.line,model_ies_review_service_line,account.group_account_user,1,0,0,0
 
 access_ies_quality_plan_user,ies.quality.plan,model_ies_quality_plan,base.group_sale_salesman,1,1,1,1
 access_ies_quality_stage_user,ies.quality.plan.stage,model_ies_quality_plan_stage,base.group_sale_salesman,1,1,1,1
@@ -26,4 +28,5 @@ access_product_template_user,product.product,product.model_product_template,base
 
 
 access_ies_defaults_user,ies.defaults,model_ies_defaults,base.group_user,1,0,0,0
-access_ies_defaults_manager,ies.defaults,model_ies_defaults,base.group_sale_manager,1,1,0,0
+access_ies_defaults_sale_manager,ies.defaults,model_ies_defaults,base.group_sale_manager,1,1,0,0
+access_ies_defaults_account_manager,ies.defaults,model_ies_defaults,account.group_account_manager,1,1,0,0
