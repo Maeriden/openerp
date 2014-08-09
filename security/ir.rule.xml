@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<openerp><!-- UNUSED FILE -->
-<data noupdate="0">
+<openerp>
+<!-- "perm_x" means "apply the rule for this operation?" -->
+<data noupdate="0"><!-- SET TO 1 -->
 <!--
 <record model="ir.rule" id="rule_ies_review_contract_lock">
 	<field name="name">Deny modification after contract creation</field>
@@ -11,32 +12,31 @@
 	<field name="perm_read" eval="False"/>
 	<field name="perm_unlink" eval="False"/>
 </record>
-
+-->
 <record model="ir.rule" id="rule_ies_review_salesman">
 	<field name="name">Salesmen can modify</field>
 	<field name="model_id" ref="model_ies_review"/>
 	<field name="domain_force">[("state", "in", ["draft"])]</field>
-	<field name="groups" eval="[(4,ref('base.group_sale_salesman_all_leads'))]"/>
+	<field name="groups" eval="[(4, ref('base.group_sale_salesman'))]"/>
 	<field name="perm_create" eval="False"/>
-	<field name="perm_read" eval="False"/>
+	<field name="perm_read"   eval="False"/>
 </record>
 
 <record model="ir.rule" id="rule_ies_review_head">
 	<field name="name">Heads can modify</field>
 	<field name="model_id" ref="model_ies_review"/>
 	<field name="domain_force">[("state", "in", ["head"])]</field>
-	<field name="groups" eval="[(4,ref('ies.group_sale_head'))]"/>
+	<field name="groups" eval="[(4, ref('ies.group_sale_head'))]"/>
 	<field name="perm_create" eval="False"/>
-	<field name="perm_read" eval="False"/>
+	<field name="perm_read"   eval="False"/>
 </record>
 
 <record model="ir.rule" id="rule_ies_review_manager">
 	<field name="name">ALLOW ALL Manager</field>
 	<field name="model_id" ref="model_ies_review"/>
 	<field name="domain_force">[(1,"=",1)]</field>
-	<field name="groups" eval="[(4,ref('base.group_sale_manager'))]"/>
+	<field name="groups" eval="[(4, ref('base.group_sale_manager'))]"/>
 </record>
--->
 
 <record model="ir.rule" id="rule_block_review_proposal_unlink">
 	<field name="name">Can't delete proposal of valid review</field>
@@ -44,8 +44,8 @@
 	<field name="domain_force">[("review_id","=",False), ("state","=","cancel")]</field>
 	<field name="global" eval="True"/>
 	<field name="perm_create" eval="False"/>
-	<field name="perm_read" eval="False"/>
-	<field name="perm_write" eval="False"/>
+	<field name="perm_read"   eval="False"/>
+	<field name="perm_write"  eval="False"/>
 	<field name="perm_unlink" eval="True"/>
 </record>
 

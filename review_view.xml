@@ -45,7 +45,11 @@ Black = else
 				confirm="Are you sure?"
 				/>
 			<button name="btn_reject" string="Reject" type="object"
-				states="head,manager"
+				states="head" groups="ies.group_sale_head"
+				confirm="Are you sure?"
+				/>
+			<button name="btn_reject" string="Reject" type="object"
+				states="manager" groups="base.group_sale_manager"
 				confirm="Are you sure?"
 				/>
 			<button name="btn_create_proposal" string="Create proposal" type="object"
