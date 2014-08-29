@@ -61,13 +61,13 @@ class Lead(osv.Model):
 		}
 		rev_id = self.pool.get("ies.review").create(cr, uid, vals, context)
 		
+		vals = {}
 		domain = [("name", "=", "Qualification"), ("type", "in", ["opportunity", "both"])]
 		stage_ids = self.pool.get("crm.case.stage").search(cr, uid, domain, context=context)
-		sid = stage_ids[0] if stage_ids else 0
+		if stage_ids and stage_ids[0]:
+			vals["stage_id"] = stage_ids[0]
 		
-		vals = {"review_id": rev_id}
-		if sid: vals["stage_id"] = sid
-		
+		vals["review_id"] = rev_id
 		self.write(cr, uid, ids, vals, context)
 		
 		try:

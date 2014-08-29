@@ -3,7 +3,7 @@
 <!--These definitions add groups to some menuitems that didn't have any, placing a restriction on who can see them-->
 <!--Except for the top-level Sales menu, which DID have the base.group_sale_salesman as default group             -->
 <!--Adding accountants to it allows them to see all the others unrestricted menus                                 -->
-<data noupdate="1">
+<data noupdate="0"><!--TODO Set to 1 after debug-->
 
 <!-- - - - - - - - - - - - - - - Top-level menu - - - - - - - - - - - - - - -->
 <record model="ir.ui.menu" id="base.menu_base_partner"> <!--Sales (top-level)-->
