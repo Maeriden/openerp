@@ -42,6 +42,8 @@ Customizzazione marketing per IES Consulting
 		"security/ir.model.access.xml",
 		
 		#Data
+		"data/crm.case.stage.xml", #Hide Lead column
+		
 		"data/ir.cron_data.xml",
 		"data/res.users_data.xml",
 		"data/res.country.state_data.xml",

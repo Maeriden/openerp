@@ -2,6 +2,17 @@
 
 from openerp.osv import fields, osv
 
+class LeadStage(osv.Model):
+	_name = "crm.case.stage"
+	_inherit = "crm.case.stage"
+	_columns = {
+		"active": fields.boolean("Active"),
+	}
+	_defaults = {
+		"active": True,
+	}
+	
+
 class Lead(osv.Model):
 	SUCCESS = [
 		("low",  "Low"),
