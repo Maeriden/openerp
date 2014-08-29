@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<openerp>
+<!-- "perm_x" means "apply the rule for this operation?" -->
+<data noupdate="0"><!-- SET TO 1 -->
+
+<record model="ir.model.access" id="crm.access_crm_lead">
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+</data>
+</openerp>

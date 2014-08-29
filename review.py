@@ -257,7 +257,7 @@ Ensures the creation of a quality check plan alongside each review
 		self.write(cr, uid, [id], {"quality_plan_id": plan_id}, context)
 		return id
 
-
+	#TODO Search using XML ids instead of name
 	def _update_opportunity(self, cr, uid, this, stage, context=None):
 		"""
 Called by various button functions to update the state of the linked crm.lead
@@ -366,7 +366,7 @@ Also updates the linked crm.lead
 		
 		order_id = self._create_proposal(cr, uid, this, context)
 		self.write(cr, uid, ids, {"order_id": order_id, "state": "proposal"}, context)
-		self._update_opportunity(cr, uid, this, "Proposition", context)
+		self._update_opportunity(cr, uid, this, "Negotiation", context)
 		
 		# Go to proposal document
 		view = self.pool.get('ir.model.data').get_object_reference(cr, uid, "sale", "view_order_form")
@@ -465,7 +465,7 @@ The UI makes this available only for canceled reviews
 		new_id = self.copy(cr, uid, this.id, defaults, context)
 		self.write(cr, uid, ids, {"previous_id": new_id}, context)
 		that = self.browse(cr, uid, new_id, context)
-		self._update_opportunity(cr, uid, that, "Negotiation", context)
+		self._update_opportunity(cr, uid, that, "Proposition", context)
 		
 		view = self.pool.get('ir.model.data').get_object_reference(cr, uid, "ies", "review_form")
 		return {

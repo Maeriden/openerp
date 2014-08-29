@@ -30,3 +30,4 @@ access_product_template_user,product.product,product.model_product_template,base
 access_ies_defaults_user,ies.defaults,model_ies_defaults,base.group_user,1,0,0,0
 access_ies_defaults_sale_manager,ies.defaults,model_ies_defaults,base.group_sale_manager,1,1,0,0
 access_ies_defaults_account_manager,ies.defaults,model_ies_defaults,account.group_account_manager,1,1,0,0
+

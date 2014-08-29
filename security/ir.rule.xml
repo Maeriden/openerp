@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <openerp>
 <!-- "perm_x" means "apply the rule for this operation?" -->
-<data noupdate="1"><!-- SET TO 1 -->
+<data noupdate="0"><!-- SET TO 1 -->
 <!--
 <record model="ir.rule" id="rule_ies_review_contract_lock">
 	<field name="name">Deny modification after contract creation</field>
@@ -13,6 +13,8 @@
 	<field name="perm_unlink" eval="False"/>
 </record>
 -->
+
+<!-- Reviews -->
 <record model="ir.rule" id="rule_ies_review_salesman">
 	<field name="name">Salesmen can modify</field>
 	<field name="model_id" ref="model_ies_review"/>
@@ -38,6 +40,28 @@
 	<field name="groups" eval="[(4, ref('base.group_sale_manager'))]"/>
 </record>
 
+
+<!-- Leads -->
+<record model="ir.rule" id="rule_own_lead_deletion">
+	<field name="name">Can delete only own leads</field>
+	<field name="model_id" ref="model_crm_lead"/>
+	<field name="domain_force">[("user_id","=",user.id)]</field>
+	<field name="global" eval="True"/>
+	<field name="perm_create" eval="False"/>
+	<field name="perm_read"   eval="False"/>
+</record>
+
+<record model="ir.rule" id="rule_own_lead_deletion_head">
+	<field name="name">ALLOW ALL Head</field>
+	<field name="model_id" ref="model_crm_lead"/>
+	<field name="domain_force">[(1,"=",1)]</field>
+	<field name="groups" eval="[(4, ref('ies.group_sale_head'))]"/>
+	<field name="perm_create" eval="False"/>
+	<field name="perm_read"   eval="False"/>
+</record>
+
+
+<!-- Sale orders -->
 <record model="ir.rule" id="rule_block_review_proposal_unlink">
 	<field name="name">Can't delete proposal of valid review</field>
 	<field name="model_id" ref="model_sale_order"/>
