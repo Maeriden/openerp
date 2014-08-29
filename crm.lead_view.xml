@@ -63,10 +63,10 @@
     <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor"/>
     <field name="arch" type="xml">
     <!--Hide "... Quotation" buttons-->
-		<xpath expr="/form/header/button[@name='%(sale_crm.action_crm_make_sale)d']" position="attributes">
+		<xpath expr="/form/header/button[@string='Create Quotation']" position="attributes">
 			<attribute name="invisible">1</attribute>
 		</xpath>
-		<xpath expr="/form/header/button[@name='%(sale_crm.action_crm_make_sale)d']" position="attributes">
+		<xpath expr="/form/header/button[@string='Convert to Quotation']" position="attributes">
 			<attribute name="invisible">1</attribute>
 		</xpath>
 	<!--Show "Create review" button-->
@@ -78,18 +78,6 @@
 		<xpath expr="/form/sheet/div[@class='oe_right oe_button_box']/button[@name='action_makeMeeting']" position="attributes">
 			<attribute name="string">Action</attribute>
 		</xpath>
-    <!--Remove "probability" field-->
-    <!--
-    	<xpath expr="/form/sheet/div[2]/h2" position="replace">
-            <h2>
-                <field name="company_currency" invisible="1"/>
-                <field name="planned_revenue" class="oe_inline"
-                	widget='monetary' options="{'currency_field': 'company_currency'}"
-                />
-            </h2>
-    	</xpath>
-    -->
-    
     <!--Hide "next action" fields-->
 		<xpath expr="/form/sheet/group[1]/group[2]/label[@for='title_action']" position="attributes">
 			<attribute name="invisible">1</attribute>
