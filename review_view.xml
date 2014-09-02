@@ -84,6 +84,7 @@ Black = else
 				</group>
 			</group>
 			<group>
+				<field name="user_id" groups="ies.group_sale_head"/>
 				<field name="completion_time" attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
 				<field name="output" attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>
 				<field name="average_market_price" attrs="{'readonly': [('state','in',['approved','proposal','contract','cancel'])]}"/>

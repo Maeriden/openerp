@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data noupdate="1">
+<data noupdate="0"> <!--TODO Set to 0-->
 <record model="mail.message.subtype" id="mt_review_state">
 	<field name="name">Phase change</field>
 	<field name="res_model">ies.review</field>

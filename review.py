@@ -131,7 +131,8 @@ Return: dict {id: gtp}
 	_rec_name = "name"
 	_order = "date desc"
 	_columns = {
-		"user_id": fields.many2one("res.users", "Creator", readonly=True),
+		"user_id": fields.many2one("res.users", "Salesperson", help="The creator and owner of the document."\
+					" Simple salespepole can't delete a document unless they are the owner"),
 	# Dati riesame
 		"state": fields.selection(STATES, "Stage"),
 		"previous_id": fields.many2one("ies.review", "Previous revision"),
@@ -252,9 +253,10 @@ Add followers to new documents as specified in the ies.defaults configuration
 		"""
 Ensures the creation of a quality check plan alongside each review
 """
+		plan = self.pool.get("ies.quality.plan")
+		vals["quality_plan_id"] = plan.create(cr, uid, context)
 		id = super(Review, self).create(cr, uid, vals, context)
-		plan_id = self.pool.get("ies.quality.plan").create(cr, uid, {"review_id": id}, context)
-		self.write(cr, uid, [id], {"quality_plan_id": plan_id}, context)
+		plan.write(cr, uid, [vals["quality_plan_id"]], {"review_id": id}, context)
 		return id
 
 	#TODO Search using XML ids instead of name
