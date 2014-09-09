@@ -38,7 +38,7 @@ Customizzazione marketing per IES Consulting
 		"security/res.groups.xml",
 		"security/ir.rule.xml",
 		"security/ir.ui.menu.xml",
-		"security/ir.model.access.csv",
+		#"security/ir.model.access.csv", #Moved to .xml
 		"security/ir.model.access.xml",
 		
 		#Data

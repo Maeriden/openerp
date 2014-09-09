@@ -1,8 +1,244 @@
 <?xml version="1.0"?>
 <openerp>
-<!-- "perm_x" means "apply the rule for this operation?" -->
 <data noupdate="0"><!-- SET TO 1 -->
 
+<!-- - - - - - - - - - - - - - - - - REVIEW - - - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_review_salesman">
+	<field name="name">ies.review@salesman</field>
+	<field name="model_id" ref="model_ies_review"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_review_accountant">
+	<field name="name">ies.review@accountant</field>
+	<field name="model_id" ref="model_ies_review"/>
+	<field name="group_id" ref="account.group_account_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="False"/>
+	<field name="perm_write"  eval="False"/>
+	<field name="perm_unlink" eval="False"/>
+</record>
+<record model="ir.model.access" id="access_review_service_line_salesman">
+	<field name="name">ies.review.service.line@salesman</field>
+	<field name="model_id" ref="model_ies_review"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_review_service_line_accountant">
+	<field name="name">ies.review.service.line@accountant</field>
+	<field name="model_id" ref="model_ies_review"/>
+	<field name="group_id" ref="account.group_account_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="False"/>
+	<field name="perm_write"  eval="False"/>
+	<field name="perm_unlink" eval="False"/>
+</record>
+
+<!-- - - - - - - - - - - - - - - QUALITY PLAN - - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_quality_plan_salesman">
+	<field name="name">ies.quality.plan@salesman</field>
+	<field name="model_id" ref="model_ies_quality_plan"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_quality_plan_stage_salesman">
+	<field name="name">ies.quality.stage@salesman</field>
+	<field name="model_id" ref="model_ies_quality_plan_stage"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+<!-- - - - - - - - - - - - - - - - FEEDBACK - - - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_feedback">
+	<field name="name">ies.feedback@user</field>
+	<field name="model_id" ref="model_ies_feedback"/>
+	<field name="group_id" ref="base.group_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_feedback_question">
+	<field name="name">ies.feedback.question@user</field>
+	<field name="model_id" ref="model_ies_feedback_question"/>
+	<field name="group_id" ref="base.group_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+<!-- - - - - - - - - - - - - - INVOICE SCHEDULE - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_invoice_schedule_line_salesman">
+	<field name="name">ies.invoice.schedule.line@salesman</field>
+	<field name="model_id" ref="model_ies_invoice_schedule_line"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_invoice_schedule_line_accountant">
+	<field name="name">ies.invoice.schedule.line@accountant</field>
+	<field name="model_id" ref="model_ies_invoice_schedule_line"/>
+	<field name="group_id" ref="account.group_account_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+<!-- - - - - - - - - - - - - - - REVENUE SHARES - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_revenue_share">
+	<field name="name">ies.revenue.share@user</field>
+	<field name="model_id" ref="model_ies_revenue_share"/>
+	<field name="group_id" ref="base.group_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="False"/>
+	<field name="perm_write"  eval="False"/>
+	<field name="perm_unlink" eval="False"/>
+</record>
+<record model="ir.model.access" id="access_revenue_share_accountant">
+	<field name="name">ies.revenue.share@accountant</field>
+	<field name="model_id" ref="model_ies_revenue_share"/>
+	<field name="group_id" ref="account.group_account_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_revenue_share_line">
+	<field name="name">ies.revenue.share.line@user</field>
+	<field name="model_id" ref="model_ies_revenue_share_line"/>
+	<field name="group_id" ref="base.group_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="False"/>
+	<field name="perm_write"  eval="False"/>
+	<field name="perm_unlink" eval="False"/>
+</record>
+<record model="ir.model.access" id="access_revenue_share_line_accountant">
+	<field name="name">ies.revenue.share.line@accountant</field>
+	<field name="model_id" ref="model_ies_revenue_share_line"/>
+	<field name="group_id" ref="account.group_account_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+<!-- - - - - - - - - - - - - - - - - REMINDER - - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_reminder_rule">
+	<field name="name">ies.reminder.rule@user</field>
+	<field name="model_id" ref="model_ies_reminder_rule"/>
+	<field name="group_id" ref="base.group_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_reminder_watcher">
+	<field name="name">ies.reminder.watcher@user</field>
+	<field name="model_id" ref="model_ies_reminder_watcher"/>
+	<field name="group_id" ref="base.group_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+<!-- - - - - - - - - - - - - -  OPPORTUNITIES - - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_crm_lead_action_salesman">
+	<field name="name">ies.crm.lead.action@salesman</field>
+	<field name="model_id" ref="model_crm_lead_action"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+<!-- - - - - - - - - - - - - - - - - PRODUCTS - - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_product_template_salesman">
+	<field name="name">ies.product.template@salesman</field>
+	<field name="model_id" ref="model_product_template"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_product_product_salesman">
+	<field name="name">ies.product.product@salesman</field>
+	<field name="model_id" ref="model_product_product"/>
+	<field name="group_id" ref="base.group_sale_salesman"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_product_template_accountant">
+	<field name="name">ies.product.template@accountant</field>
+	<field name="model_id" ref="model_product_template"/>
+	<field name="group_id" ref="account.group_account_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+<record model="ir.model.access" id="access_product_product_accountant">
+	<field name="name">ies.product.product@accountant</field>
+	<field name="model_id" ref="model_product_product"/>
+	<field name="group_id" ref="account.group_account_user"/>
+	<field name="perm_create" eval="True"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="True"/>
+</record>
+
+<!-- - - - - - - - - - - - - - -DEFAULT CONFIG- - - - - - - - - - - - - - - -->
+<record model="ir.model.access" id="access_defaults">
+	<field name="name">ies.defaults@user</field>
+	<field name="model_id" ref="model_ies_defaults"/>
+	<field name="group_id" ref="base.group_user"/>
+	<field name="perm_create" eval="False"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="False"/>
+	<field name="perm_unlink" eval="False"/>
+</record>
+<record model="ir.model.access" id="access_defaults_sale_manager">
+	<field name="name">ies.defaults@sale.manager</field>
+	<field name="model_id" ref="model_ies_defaults"/>
+	<field name="group_id" ref="base.group_sale_manager"/>
+	<field name="perm_create" eval="False"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="False"/>
+</record>
+<record model="ir.model.access" id="access_defaults_account_manager">
+	<field name="name">ies.defaults@account.manager</field>
+	<field name="model_id" ref="model_ies_defaults"/>
+	<field name="group_id" ref="account.group_account_manager"/>
+	<field name="perm_create" eval="False"/>
+	<field name="perm_read"   eval="True"/>
+	<field name="perm_write"  eval="True"/>
+	<field name="perm_unlink" eval="False"/>
+</record>
+
+
+
+<!-- - - - - - - - - - - - - - - MODIFICATIONS  - - - - - - - - - - - - - - -->
 <record model="ir.model.access" id="crm.access_crm_lead">
 	<field name="perm_unlink" eval="True"/>
 </record>

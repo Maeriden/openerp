@@ -23,8 +23,10 @@ access_ies_reminder_watcher_user,ies.reminder.watcher,model_ies_reminder_watcher
 
 access_crm_lead_action_user,crm.lead.action,model_crm_lead_action,base.group_sale_salesman,1,1,1,1
 
-access_product_product_user,product.product,product.model_product_product,base.group_sale_salesman,1,1,1,1
-access_product_template_user,product.product,product.model_product_template,base.group_sale_salesman,1,1,1,1
+access_product_product_user,product.product.salesman,product.model_product_product,base.group_sale_salesman,1,1,1,1
+access_product_template_user,product.template.salesman,product.model_product_template,base.group_sale_salesman,1,1,1,1
+access_product_product_account_user,product.product,product.model_product_product,base.group_sale_salesman,1,1,1,1
+access_product_product_account_user,product.product,product.model_product_product,base.group_sale_salesman,1,1,1,1
 
 
 access_ies_defaults_user,ies.defaults,model_ies_defaults,base.group_user,1,0,0,0

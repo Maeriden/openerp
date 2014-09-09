@@ -4,6 +4,6 @@
 import analytic, crm_lead, res_partner, sale, invoice
 
 #New functionalities
-import review, reminder, interview, defaults
+import review, reminder, feedback, defaults
 
 import revenue_shares
