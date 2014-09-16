@@ -23,7 +23,7 @@
 </record>
 <record model="ir.model.access" id="access_review_service_line_salesman">
 	<field name="name">ies.review.service.line@salesman</field>
-	<field name="model_id" ref="model_ies_review"/>
+	<field name="model_id" ref="model_ies_review_service_line"/>
 	<field name="group_id" ref="base.group_sale_salesman"/>
 	<field name="perm_create" eval="True"/>
 	<field name="perm_read"   eval="True"/>
@@ -32,7 +32,7 @@
 </record>
 <record model="ir.model.access" id="access_review_service_line_accountant">
 	<field name="name">ies.review.service.line@accountant</field>
-	<field name="model_id" ref="model_ies_review"/>
+	<field name="model_id" ref="model_ies_review_service_line"/>
 	<field name="group_id" ref="account.group_account_user"/>
 	<field name="perm_create" eval="True"/>
 	<field name="perm_read"   eval="False"/>
@@ -172,7 +172,7 @@
 <!-- - - - - - - - - - - - - - - - - PRODUCTS - - - - - - - - - - - - - - - -->
 <record model="ir.model.access" id="access_product_template_salesman">
 	<field name="name">ies.product.template@salesman</field>
-	<field name="model_id" ref="model_product_template"/>
+	<field name="model_id" ref="product.model_product_template"/>
 	<field name="group_id" ref="base.group_sale_salesman"/>
 	<field name="perm_create" eval="True"/>
 	<field name="perm_read"   eval="True"/>
@@ -181,7 +181,7 @@
 </record>
 <record model="ir.model.access" id="access_product_product_salesman">
 	<field name="name">ies.product.product@salesman</field>
-	<field name="model_id" ref="model_product_product"/>
+	<field name="model_id" ref="product.model_product_product"/>
 	<field name="group_id" ref="base.group_sale_salesman"/>
 	<field name="perm_create" eval="True"/>
 	<field name="perm_read"   eval="True"/>
@@ -190,7 +190,7 @@
 </record>
 <record model="ir.model.access" id="access_product_template_accountant">
 	<field name="name">ies.product.template@accountant</field>
-	<field name="model_id" ref="model_product_template"/>
+	<field name="model_id" ref="product.model_product_template"/>
 	<field name="group_id" ref="account.group_account_user"/>
 	<field name="perm_create" eval="True"/>
 	<field name="perm_read"   eval="True"/>
@@ -199,7 +199,7 @@
 </record>
 <record model="ir.model.access" id="access_product_product_accountant">
 	<field name="name">ies.product.product@accountant</field>
-	<field name="model_id" ref="model_product_product"/>
+	<field name="model_id" ref="product.model_product_product"/>
 	<field name="group_id" ref="account.group_account_user"/>
 	<field name="perm_create" eval="True"/>
 	<field name="perm_read"   eval="True"/>

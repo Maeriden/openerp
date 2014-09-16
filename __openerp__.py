@@ -44,6 +44,7 @@ Customizzazione marketing per IES Consulting
 		#Data
 		"data/crm.case.stage.xml", #Hide Lead column
 		
+		#"data/account.account.xml", TODO
 		"data/ir.cron_data.xml",
 		"data/res.users_data.xml",
 		"data/res.country.state_data.xml",
@@ -69,6 +70,9 @@ Customizzazione marketing per IES Consulting
 		"reminder_view.xml",
 		
 	#	"workflow/review_workflow.xml", #Incomplete
+		
+		#Wizards
+		"wizard/mail.invite.view.xml",
     ],
     
     "js": [
