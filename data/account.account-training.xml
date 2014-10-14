@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0"><!-- TODO Set to 1 -->
+<!-- HEALTH -->
+<record model="account.account" id="account_A311">
+	<field name="code">A311</field>
+	<field name="name">COGS</field>
+	<field name="parent_id" ref="account_A31"/>
+	<field name="type">view</field>
+	<field name="user_type" ref="account.data_account_type_view"/>
+</record>
+		<record model="account.account" id="account_A31101">
+			<field name="code">A31101</field>
+			<field name="name">Advisory</field>
+			<field name="parent_id" ref="account_A311"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31102">
+			<field name="code">A31102</field>
+			<field name="name">Strategy</field>
+			<field name="parent_id" ref="account_A311"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31103">
+			<field name="code">A31103</field>
+			<field name="name">Consulenze</field>
+			<field name="parent_id" ref="account_A311"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31104">
+			<field name="code">A31104</field>
+			<field name="name">Altro</field>
+			<field name="parent_id" ref="account_A311"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31105">
+			<field name="code">A31105</field>
+			<field name="name">Organization</field>
+			<field name="parent_id" ref="account_A311"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31106">
+			<field name="code">A31106</field>
+			<field name="name">Training</field>
+			<field name="parent_id" ref="account_A311"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31107">
+			<field name="code">A31107</field>
+			<field name="name">Consulenze/Docenze</field>
+			<field name="parent_id" ref="account_A311"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+
+<record model="account.account" id="account_A312">
+	<field name="code">A312</field>
+	<field name="name">OC</field>
+	<field name="parent_id" ref="account_A31"/>
+	<field name="type">view</field>
+	<field name="user_type" ref="account.data_account_type_view"/>
+</record>
+		<record model="account.account" id="account_A31201">
+			<field name="code">A31201</field>
+			<field name="name">Advisory</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31202">
+			<field name="code">A31202</field>
+			<field name="name">Head of Advisory</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31203">
+			<field name="code">A31203</field>
+			<field name="name">Strategy</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31204">
+			<field name="code">A31204</field>
+			<field name="name">PD</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A3120">
+			<field name="code">A3120</field>
+			<field name="name">Organization</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31206">
+			<field name="code">A31206</field>
+			<field name="name">Sales fee</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31207">
+			<field name="code">A31207</field>
+			<field name="name">Marketing</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31208">
+			<field name="code">A31208</field>
+			<field name="name">Missioni</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31209">
+			<field name="code">A31209</field>
+			<field name="name">Varie</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31210">
+			<field name="code">A31210</field>
+			<field name="name">Training</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31211">
+			<field name="code">A31211</field>
+			<field name="name">Head of Training</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31212">
+			<field name="code">A31212</field>
+			<field name="name">Funzione di supporto all'Head</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31213">
+			<field name="code">A31213</field>
+			<field name="name">Provider ECM</field>
+			<field name="parent_id" ref="account_A312"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+
+<record model="account.account" id="account_A313">
+	<field name="code">A313</field>
+	<field name="name">SG</field>
+	<field name="parent_id" ref="account_A31"/>
+	<field name="type">view</field>
+	<field name="user_type" ref="account.data_account_type_view"/>
+</record>
+		<record model="account.account" id="account_A31301">
+			<field name="code">A31301</field>
+			<field name="name">Personale + GM</field>
+			<field name="parent_id" ref="account_A313"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31302">
+			<field name="code">A31302</field>
+			<field name="name">Utenze e Affitti</field>
+			<field name="parent_id" ref="account_A313"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31303">
+			<field name="code">A31303</field>
+			<field name="name">Consulenze</field>
+			<field name="parent_id" ref="account_A313"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31304">
+			<field name="code">A31304</field>
+			<field name="name">Materiali di Consumo</field>
+			<field name="parent_id" ref="account_A313"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31305">
+			<field name="code">A31305</field>
+			<field name="name">Missioni</field>
+			<field name="parent_id" ref="account_A313"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A31306">
+			<field name="code">A31306</field>
+			<field name="name">Varie</field>
+			<field name="parent_id" ref="account_A313"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+
+
+
+
+
+<!-- CORPORATE -->
+<record model="account.account" id="account_A321">
+	<field name="code">A321</field>
+	<field name="name">COGS</field>
+	<field name="parent_id" ref="account_A32"/>
+	<field name="type">view</field>
+	<field name="user_type" ref="account.data_account_type_view"/>
+</record>
+		<record model="account.account" id="account_A32101">
+			<field name="code">A32101</field>
+			<field name="name">Advisory</field>
+			<field name="parent_id" ref="account_A321"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32102">
+			<field name="code">A32102</field>
+			<field name="name">Strategy</field>
+			<field name="parent_id" ref="account_A321"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32103">
+			<field name="code">A32103</field>
+			<field name="name">Consulenze</field>
+			<field name="parent_id" ref="account_A321"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32104">
+			<field name="code">A32104</field>
+			<field name="name">Altro</field>
+			<field name="parent_id" ref="account_A321"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32105">
+			<field name="code">A32105</field>
+			<field name="name">Organization</field>
+			<field name="parent_id" ref="account_A321"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32106">
+			<field name="code">A32106</field>
+			<field name="name">Training</field>
+			<field name="parent_id" ref="account_A321"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32107">
+			<field name="code">A32107</field>
+			<field name="name">Consulenze/Docenze</field>
+			<field name="parent_id" ref="account_A321"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+
+<record model="account.account" id="account_A322">
+	<field name="code">A322</field>
+	<field name="name">OC</field>
+	<field name="parent_id" ref="account_A32"/>
+	<field name="type">view</field>
+	<field name="user_type" ref="account.data_account_type_view"/>
+</record>
+		<record model="account.account" id="account_A32201">
+			<field name="code">A32201</field>
+			<field name="name">Advisory</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32202">
+			<field name="code">A32202</field>
+			<field name="name">Head of Advisory</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32203">
+			<field name="code">A32203</field>
+			<field name="name">Strategy</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32204">
+			<field name="code">A32204</field>
+			<field name="name">PD</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A3220">
+			<field name="code">A3220</field>
+			<field name="name">Organization</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32206">
+			<field name="code">A32206</field>
+			<field name="name">Sales fee</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32207">
+			<field name="code">A32207</field>
+			<field name="name">Marketing</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32208">
+			<field name="code">A32208</field>
+			<field name="name">Missioni</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32209">
+			<field name="code">A32209</field>
+			<field name="name">Varie</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32210">
+			<field name="code">A32210</field>
+			<field name="name">Training</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32211">
+			<field name="code">A32211</field>
+			<field name="name">Head of Training</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32212">
+			<field name="code">A32212</field>
+			<field name="name">Funzione di supporto all'Head</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32213">
+			<field name="code">A32213</field>
+			<field name="name">Provider ECM</field>
+			<field name="parent_id" ref="account_A322"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+
+<record model="account.account" id="account_A323">
+	<field name="code">A323</field>
+	<field name="name">SG</field>
+	<field name="parent_id" ref="account_A32"/>
+	<field name="type">view</field>
+	<field name="user_type" ref="account.data_account_type_view"/>
+</record>
+		<record model="account.account" id="account_A32301">
+			<field name="code">A32301</field>
+			<field name="name">Personale + GM</field>
+			<field name="parent_id" ref="account_A323"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32302">
+			<field name="code">A32302</field>
+			<field name="name">Utenze e Affitti</field>
+			<field name="parent_id" ref="account_A323"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32303">
+			<field name="code">A32303</field>
+			<field name="name">Consulenze</field>
+			<field name="parent_id" ref="account_A323"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32304">
+			<field name="code">A32304</field>
+			<field name="name">Materiali di Consumo</field>
+			<field name="parent_id" ref="account_A323"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32305">
+			<field name="code">A32305</field>
+			<field name="name">Missioni</field>
+			<field name="parent_id" ref="account_A323"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+		<record model="account.account" id="account_A32306">
+			<field name="code">A32306</field>
+			<field name="name">Varie</field>
+			<field name="parent_id" ref="account_A323"/>
+			<field name="type">other</field>
+			<field name="user_type" ref="account.data_account_type_view"/><!--TODO-->
+		</record>
+
+</data>
+</openerp>

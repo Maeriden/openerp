@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0"><!-- TODO Set to 1 -->
+
+<record model="account.account" id="account_A">
+	<field name="code">A</field>
+	<field name="name">ADVISORY</field>
+	<!--<field name="parent_id" ref=""/>-->
+	<field name="type">view</field>
+	<field name="user_type" ref="account.data_account_type_view"/>
+</record>
+	<record model="account.account" id="account_A1">
+		<field name="code">A1</field>
+		<field name="name">STRATEGY</field>
+		<field name="parent_id" ref="account_A"/>
+		<field name="type">view</field>
+		<field name="user_type" ref="account.data_account_type_view"/>
+	</record>
+		<record model="account.account" id="account_A11">
+			<field name="code">A11</field>
+			<field name="name">HEALTH</field>
+			<field name="parent_id" ref="account_A1"/>
+			<field name="type">view</field>
+			<field name="user_type" ref="account.data_account_type_view"/>
+		</record>
+		<record model="account.account" id="account_A12">
+			<field name="code">A12</field>
+			<field name="name">CORPORATE</field>
+			<field name="parent_id" ref="account_A1"/>
+			<field name="type">view</field>
+			<field name="user_type" ref="account.data_account_type_view"/>
+		</record>
+
+	<record model="account.account" id="account_A2">
+		<field name="code">A2</field>
+		<field name="name">S&amp;O</field>
+		<field name="parent_id" ref="account_A"/>
+		<field name="type">view</field>
+		<field name="user_type" ref="account.data_account_type_view"/>
+	</record>
+		<record model="account.account" id="account_A21">
+			<field name="code">A21</field>
+			<field name="name">HEALTH</field>
+			<field name="parent_id" ref="account_A2"/>
+			<field name="type">view</field>
+			<field name="user_type" ref="account.data_account_type_view"/>
+		</record>
+		<record model="account.account" id="account_A22">
+			<field name="code">A22</field>
+			<field name="name">CORPORATE</field>
+			<field name="parent_id" ref="account_A2"/>
+			<field name="type">view</field>
+			<field name="user_type" ref="account.data_account_type_view"/>
+		</record>
+
+	<record model="account.account" id="account_A3">
+		<field name="code">A3</field>
+		<field name="name">TRAINING</field>
+		<field name="parent_id" ref="account_A"/>
+		<field name="type">view</field>
+		<field name="user_type" ref="account.data_account_type_view"/>
+	</record>
+		<record model="account.account" id="account_A31">
+			<field name="code">A31</field>
+			<field name="name">HEALTH</field>
+			<field name="parent_id" ref="account_A3"/>
+			<field name="type">view</field>
+			<field name="user_type" ref="account.data_account_type_view"/>
+		</record>
+		<record model="account.account" id="account_A32">
+			<field name="code">A32</field>
+			<field name="name">CORPORATE</field>
+			<field name="parent_id" ref="account_A3"/>
+			<field name="type">view</field>
+			<field name="user_type" ref="account.data_account_type_view"/>
+		</record>
+
+</data>
+</openerp>
