@@ -63,6 +63,7 @@
 						help="Parent analytic account. Used to divide contracts in sections"
 					/>
 					<field name="review_id" attrs="{'invisible': [('type','!=','contract')]}"/>
+					<field name="dropbox_link" attrs="{'invisible': [('type','!=','contract')]}" widget="url"/>
 					<field name="company_id" on_change="on_change_company(company_id)" widget="selection" groups="base.group_multi_company" attrs="{'required': [('type','!=','view')]}"/>
 				</group>
 			</group>

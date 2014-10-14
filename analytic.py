@@ -9,6 +9,7 @@ class Contract(osv.Model):
         "date_create": fields.date("Creation date"),
         "review_id": fields.many2one("ies.review", "Review"),
         "schedule_line_ids": fields.one2many("ies.invoice.schedule.line", "contract_id", string="Invoicing plan"),
+        "dropbox_link": fields.char("Dropbox link", 256, help="Dropbox URL of a publicly accessible document"),
     }
 
     _defaults = {
